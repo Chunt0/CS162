@@ -10,3 +10,9 @@ function within my project design.
 
 Comments that contain start with #[*] are intended to guide the reader to the components that
 satisfy this weeks assignment elements.
+
+The MNIST data sets are contained in the folder ./MNISTinputcsv
+
+These files are zipped, so you must unzip and place them in the path of your choosing. The program
+is designed such that you will need to input your desired path for the fileInput function to read
+from.
