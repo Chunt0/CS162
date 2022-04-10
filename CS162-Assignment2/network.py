@@ -13,8 +13,6 @@ class Network:
 
         self.num_layers = len(sizes)
         self.sizes = sizes
-        # The weights matrix is a 3d matrix: 
-        # (1d: identifies the interlayer space(2d: the forward layer(3d: the backward layer)))
         self.weights = [np.random.randn(x,y) for x,y in zip(sizes[1:], sizes[:-1])]  # (from index 1 until the end, from index 0 to one before the end)
         self.biases = [np.random.randn(y,1) for y in sizes[1:]] # (from index 1 until the end, always 1)
 
