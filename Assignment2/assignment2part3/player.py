@@ -1,5 +1,11 @@
 import utils
 
+#[!] This Player class is well designed and coherent to read.
+#[!] The functionality of this class can easily be followed,
+#[!] although I would suggest adding some comments at the beginning
+#[!] to preface the role this class object will play in the over all
+#[!] program.
+
 class Player:
     def __init__(self, name, race, profession):
         self.name          = name
@@ -16,7 +22,6 @@ class Player:
               f'RACE :{self.race}\n'
               f'CLASS:{self.profession}\n')
 
-
     def stats(self):
         return f"\nPlayer Status:\n" \
                f"  NAME     : {self.name}\n" \
@@ -26,10 +31,6 @@ class Player:
                f"  DAMAGE   : {self.damage}\n" \
                f"  DEXTERITY: {self.dex}\n"
 
-
-
-
-
     def add_gold(self,amount):
         """Adds gold to the player's inventory"""
         if amount>=0:
@@ -37,7 +38,6 @@ class Player:
         else:
             print("Hilarious... you can't add negative gold.")
         
-
     def remove_gold(self,amount):
         """Removes gold from the players inventory"""
         if self.gold >= amount:

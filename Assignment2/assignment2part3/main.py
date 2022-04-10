@@ -2,6 +2,10 @@ import utils
 import re
 import player
 
+#[!] I believe this entire file could be turned into a menu class. It would
+#[!] help organize and make the deployment of the game more efficient and easy 
+#[!] follow.
+
 """Player's chosen name, race, and profession"""
 ###Race###-------------------------------------------------------------------
 DWARF = ('Dwarf', 0, 3)

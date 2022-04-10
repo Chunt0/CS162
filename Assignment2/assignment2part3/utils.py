@@ -1,3 +1,6 @@
+#[!] I would add some comments at the top to clarify what this file is doing,
+#[!] otherwise this file is coherent.
+
 def input_num(prompt, num, low=1):
     """Checks validity of input"""
     while True:
