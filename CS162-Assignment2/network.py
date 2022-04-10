@@ -43,6 +43,8 @@ class Network:
         if test_data: n_test = len(test_data)
         pass
 
+##########################################################################################################
+
 #[*] Here is my selection menu where I utilize try and except clauses and access my file reading function. 
     def selectionMenu(self):
         on = True
