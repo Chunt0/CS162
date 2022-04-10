@@ -35,7 +35,7 @@ class Network:
         function as the activation function on all layers"""
         for b, w in zip(self.biases, self.weights):
             a = sigmoid(np.dot(w,a)+b)
-            return a
+        return a
 
     def stochasticGradientDescent(self, training_data, epochs, mini_batch_size, eta, test_data=None):
         """Finding Global Minima -> in this case minimizing the cost function. Stochastic Gradient Descent is designed such that
@@ -50,15 +50,20 @@ class Network:
         on = True
         try:
             file = input("Provide path to Test or Train csv file: ")
-            image, label = fileInput(file, 10000)
+            test_or_train = abs(int(input("Test or Train?\n1. Test\n2. Train\n:: ")))
+            if (test_or_train == 1):
+                size = 10000
+            elif (test_or_train ==2):
+                size = 60000
+            image, label = fileInput(file, size)
             while(on):
                           
-                print("What would you like to do?\n1. Feed Forward with ReLU\n2.Feed Forward with Sigmoid\n3. Exit\n")
+                print("What would you like to do?\n1. Feed Forward with ReLU\n2. Feed Forward with Sigmoid\n3. Exit\n")
                 selection = int(input(":: "))
                 if(selection == 1):
-                    print(self.feedForwardRelu(image))
+                    print(self.feedForwardRelu(image).shape)
                 elif(selection == 2):
-                    print(self.feedForwardSigmoid(image))
+                    print(self.feedForwardSigmoid(image).shape)
                 elif(selection == 3):
                     print("\nGood Bye!")
                     on = False
