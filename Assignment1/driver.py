@@ -1,5 +1,4 @@
 from animal import Animal
-# This is a test
 def main():
     animal = Animal()
     animal.menu()
