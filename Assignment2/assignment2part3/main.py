@@ -95,6 +95,8 @@ def character_creation():
     return me
 
 #[$] This is my attempt at adding file reading into the program
+#[$] It doesn't work. But this is how I would implement it if I took the time
+#[$] to reorganize the program structure.
 """
 def characterFileInput(file):
     # This input text file would be organized in such a way that it would
@@ -105,8 +107,13 @@ def characterFileInput(file):
     
     for i in range(0, len(line))
         character_attributes = line[i].split(',')
+
+    # character_attributes will be a list that looks like this: [string name_string, int race_index, int profession_index, int gold, int current_health]
+    # The using the index of the race and profession will allow the program to access the RACE and PROFESSION definitions defined above
     
     player_character = Player(character_attributes[0], character_attributes[1], character_attributes[2])
+    player_character.setgold()
+    player_character.sethp()
 
     return player_character
 
