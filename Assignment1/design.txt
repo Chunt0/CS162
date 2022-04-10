@@ -1,0 +1,25 @@
+# Christopher Hunt
+# CS 162
+# Assignment 1
+
+
+"""
+Part 1
+------
+
+Simple Class Design:
+
+Animal:
+    attributes:
+        name
+        species
+        size
+        fur
+        sound
+
+    method:
+        setAttribute
+        printAttribute
+        makeSound
+        menu
+"""
