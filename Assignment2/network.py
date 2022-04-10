@@ -14,8 +14,8 @@ class Network:
         self.num_layers = len(self.sizes)
         self.weights = [np.random.randn(x,y) for x,y in zip(self.sizes[1:], self.sizes[:-1])]  # (from index 1 until the end, from index 0 to one before the end)
         self.biases = [np.random.randn(y,1) for y in self.sizes[1:]] # (from index 1 until the end, always 1)
-        self.input_size = None
         self.mini_batch_size = 10
+        self.input_size = None
         self.image = None
         self.label = None
         self.epochs = None
