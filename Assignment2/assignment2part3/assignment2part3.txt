@@ -2,12 +2,12 @@
 # CS162
 
 1. Attempt to add file reading and writing to their program:
-    When looking through my partners code search for #[*] to find
+    When looking through my partners code search for #[$] to find
     the areas of code that I attempted to add.
 
-    This was fairly difficult because I the code was relatively complex
-    and requires some reorganization in order to incorporate file I/O
-    with more efficiency
+    I was unable to fully incorporate file I/O. This was fairly difficult
+    because the code was relatively complex and requires some reorganization 
+    in order to incorporate file I/O with more efficiency.
 
 2. Identify sections of their code that you think could be made into methods or funcitons
     When looking through my partners code search for #[!] to find 

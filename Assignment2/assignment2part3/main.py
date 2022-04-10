@@ -94,6 +94,25 @@ def character_creation():
     me = player.Player(name, race, profession)
     return me
 
+#[$] This is my attempt at adding file reading into the program
+"""
+def characterFileInput(file):
+    # This input text file would be organized in such a way that it would
+    # build a Player class object with the information in the file
+    
+    with open(file) as f:
+        line = f.readlines()
+    
+    for i in range(0, len(line))
+        character_attributes = line[i].split(',')
+    
+    player_character = Player(character_attributes[0], character_attributes[1], character_attributes[2])
+
+    return player_character
+
+"""
+
+#[$] I would implement the file input function as an option in the menu selection func
 def menu():
     """Allows player to create a character and check thier status as well as add or remove gold"""
     me = None

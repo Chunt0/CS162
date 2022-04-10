@@ -1,0 +1,2 @@
+#[$] This is an example of the file to read. In reality this comment would not be in this file.
+chris,1,2,100,15
