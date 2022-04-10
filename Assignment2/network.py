@@ -18,6 +18,8 @@ class Network:
         self.mini_batch_size = 10
         self.image = None
         self.label = None
+        self.epochs = None
+        self.eta = None
 
     def feedForwardRelu(self, a):
         """Return the output of the network if "a" is input using ReLU and softmax as 
@@ -44,7 +46,9 @@ class Network:
     def makeMiniBatch(self):
         """Function to generate mini batches to be used in Stochastic Gradient Descent"""
         # Create List of random int from 0 to self.input_size to randomize input file
-        shuffled_index = random.shuffle((list(range(0,10000))))
+        
+        shuffled_index = (list(range(0,self.input_size)))
+        random.shuffle(shuffled_index)
         data = []
         for element in shuffled_index:
             data.append(self.image.T[element])
@@ -76,7 +80,7 @@ class Network:
                 self.input_size = 60000
             self.image, self.label = fileInput(file, self.input_size)
             while(on):
-                          
+
                 print("What would you like to do?\n1. Feed Forward with ReLU\n2. Feed Forward with Sigmoid\n3. Developers Options\n4. Exit.\n")
                 selection = int(input(":: "))
                 if(selection == 1):
@@ -84,15 +88,16 @@ class Network:
                 elif(selection == 2):
                     print(self.feedForwardSigmoid(self.image).shape)
                 elif(selection == 3):
-                    # Developers Options. Space to add dev tests of program functionality.
-                    print(self.image.T[0].shape)
+                    # Developers Options is a space to add dev tests of program functionality.
+                    mini_batches = self.makeMiniBatch()
+                    print(f"len(mini_batches): {len(mini_batches)}\nmini_batches[0][0].shape: {mini_batches[0][0].shape}\n")
                 elif(selection == 4):
                     print("\nGood Bye!")
                     on = False
 
                 else:
                     print("\nWhat ever you entered didn't make sense. Try again.\n")
-
+    
         except ValueError:
             print("\n####VALUEERROR####\nYOU MUST HAVE ENTERED A CHARACTER STRING WHEN YOU SHOULD HAVE ENTERED AN INTEGER...")
         except FileNotFoundError:
