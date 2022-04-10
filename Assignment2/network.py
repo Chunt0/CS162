@@ -1,6 +1,7 @@
 # CHRISTOPHER HUNT
 # network.py
 
+import random
 import numpy as np
 from MNIST_crit_funcs import sigmoid, relu, softmax, fileInput
 
@@ -14,6 +15,10 @@ class Network:
         self.num_layers = len(self.sizes)
         self.weights = [np.random.randn(x,y) for x,y in zip(self.sizes[1:], self.sizes[:-1])]  # (from index 1 until the end, from index 0 to one before the end)
         self.biases = [np.random.randn(y,1) for y in self.sizes[1:]] # (from index 1 until the end, always 1)
+        self.input_size = None
+        self.mini_batch_size = 10
+        self.image = None
+        self.label = None
 
     def feedForwardRelu(self, a):
         """Return the output of the network if "a" is input using ReLU and softmax as 
@@ -37,6 +42,17 @@ class Network:
             a = sigmoid(np.dot(w,a)+b)
         return a
 
+    def makeMiniBatch(self, data):
+        """Function to generate mini batches to be used in Stochastic Gradient Descent
+        """
+        # Create List of random int from 0 to self.input_size to randomize input file
+        shuffled_index = (list(range(0,10000)))
+        random.shuffle(shuffled_index)
+
+        mini_batches =[]
+        
+        pass
+
     def stochasticGradientDescent(self, training_data, epochs, mini_batch_size, eta, test_data=None):
         """Finding Global Minima -> in this case minimizing the cost function. Stochastic Gradient Descent is designed such that
         we can better avoid getting caught in local minima to find the global minima."""
@@ -52,21 +68,23 @@ class Network:
             file = input("Provide path to Test or Train csv file: ")
             test_or_train = abs(int(input("Test or Train?\n1. Test\n2. Train\n:: ")))
             if (test_or_train == 1):
-                size = 10000
+                self.input_size = 10000
             elif (test_or_train ==2):
-                size = 60000
-            image, label = fileInput(file, size)
+                self.input_size = 60000
+            self.image, self.label = fileInput(file, self.input_size)
             while(on):
                           
-                print("What would you like to do?\n1. Feed Forward with ReLU\n2. Feed Forward with Sigmoid\n3. Exit\n")
+                print("What would you like to do?\n1. Feed Forward with ReLU\n2. Feed Forward with Sigmoid\n3. Exit\n4. Developers Options\n")
                 selection = int(input(":: "))
                 if(selection == 1):
-                    print(self.feedForwardRelu(image).shape)
+                    print(self.feedForwardRelu(self.image).shape)
                 elif(selection == 2):
-                    print(self.feedForwardSigmoid(image).shape)
+                    print(self.feedForwardSigmoid(self.image).shape)
                 elif(selection == 3):
                     print("\nGood Bye!")
                     on = False
+                elif(selection == 4):
+                    pass
                 else:
                     print("\nWhat ever you entered didn't make sense. Try again.\n")
 
