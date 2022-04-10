@@ -10,7 +10,6 @@ class Network:
     def __init__(self,sizes):
         """Initializes the random weights and biases matrices. Also holds the sizes 
         and number of layers variables. Tricky to build weights and biases"""
-
         self.sizes = sizes
         self.num_layers = len(self.sizes)
         self.weights = [np.random.randn(x,y) for x,y in zip(self.sizes[1:], self.sizes[:-1])]  # (from index 1 until the end, from index 0 to one before the end)
@@ -42,29 +41,33 @@ class Network:
             a = sigmoid(np.dot(w,a)+b)
         return a
 
-    def makeMiniBatch(self, data):
-        """Function to generate mini batches to be used in Stochastic Gradient Descent
-        """
+    def makeMiniBatch(self):
+        """Function to generate mini batches to be used in Stochastic Gradient Descent"""
         # Create List of random int from 0 to self.input_size to randomize input file
-        shuffled_index = (list(range(0,10000)))
-        random.shuffle(shuffled_index)
+        shuffled_index = random.shuffle((list(range(0,10000))))
+        data = []
+        for element in shuffled_index:
+            data.append(self.image.T[element])
 
-        mini_batches =[]
-        
-        pass
+        mini_batches = \
+            [data[k:k+self.mini_batch_size] \
+            for k in range(0,self.input_size, self.mini_batch_size)]
+
+        return mini_batches
 
     def stochasticGradientDescent(self, training_data, epochs, mini_batch_size, eta, test_data=None):
         """Finding Global Minima -> in this case minimizing the cost function. Stochastic Gradient Descent is designed such that
         we can better avoid getting caught in local minima to find the global minima."""
-        if test_data: n_test = len(test_data)
         pass
 
 ##########################################################################################################
 
 #[*] Here is my selection menu where I utilize try and except clauses and access my file reading function. 
     def selectionMenu(self):
+        """Selection Menu. This function allows the Network class object to have a User Interface"""
         on = True
         try:
+
             file = input("Provide path to Test or Train csv file: ")
             test_or_train = abs(int(input("Test or Train?\n1. Test\n2. Train\n:: ")))
             if (test_or_train == 1):
@@ -74,17 +77,19 @@ class Network:
             self.image, self.label = fileInput(file, self.input_size)
             while(on):
                           
-                print("What would you like to do?\n1. Feed Forward with ReLU\n2. Feed Forward with Sigmoid\n3. Exit\n4. Developers Options\n")
+                print("What would you like to do?\n1. Feed Forward with ReLU\n2. Feed Forward with Sigmoid\n3. Developers Options\n4. Exit.\n")
                 selection = int(input(":: "))
                 if(selection == 1):
                     print(self.feedForwardRelu(self.image).shape)
                 elif(selection == 2):
                     print(self.feedForwardSigmoid(self.image).shape)
                 elif(selection == 3):
+                    # Developers Options. Space to add dev tests of program functionality.
+                    print(self.image.T[0].shape)
+                elif(selection == 4):
                     print("\nGood Bye!")
                     on = False
-                elif(selection == 4):
-                    pass
+
                 else:
                     print("\nWhat ever you entered didn't make sense. Try again.\n")
 
