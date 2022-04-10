@@ -62,14 +62,27 @@ class Network:
             [data[k:k+self.mini_batch_size] \
             for k in range(0,self.input_size, self.mini_batch_size)]
 
-        return mini_batches
+        return mini_batches # [ [np.array: batch_size X 784],... n ] where n = input_size/mini_batch_size
+
+    def updateMiniBatch(self, mini_batch):
+        pass
+
+    def evaluate(self):
+        pass
 
     def stochasticGradientDescent(self, training_data, epochs, mini_batch_size, eta, test_data=None):
         """
         Finding Global Minima -> in this case minimizing the cost function. Stochastic Gradient Descent is designed such that
         we can better avoid getting caught in local minima to find the global minima.
         """
-        pass
+        for count in range(0, self.epochs):
+            mini_batches = self.makeMiniBatch()
+            for mini_batch in mini_batches:
+                self.updateMiniBatch(mini_batch, self.eta) #--> This is where the feed forward, back prop, then update of weights and biases occurs.
+            if test_data:
+                print(f"Epoch {count}: ::evaluation goes here::\n")
+            else:
+                print(f"Epoch {count} complete\n")
 
 ##########################################################################################################
 
@@ -95,7 +108,7 @@ class Network:
                 elif(selection == 3):
                     # Developers Options is a space to add dev tests of program functionality.
                     mini_batches = self.makeMiniBatch()
-                    print(f"len(mini_batches): {len(mini_batches)}\nmini_batches[0][0].shape: {mini_batches[0][0].shape}\n")
+                    print(f"len(mini_batches): {len(mini_batches)}\nmini_batches[0].shape: {mini_batches[0]}\n")
                 elif(selection == 4):
                     print("\nGood Bye!")
                     on = False
