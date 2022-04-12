@@ -1,4 +1,3 @@
-from optparse import OptionGroup
 import turtle
 
 windowsize = 1000
@@ -12,7 +11,7 @@ y_poses = [60, 30, 0, -30, -60]
 opponents = []
 
 for color, y_pos in zip(colors, y_poses):
-    new_turtle = turtle.Turtle("turtle")
+    new_turtle = turtle.Turtle("square")
     new_turtle.penup()
     new_turtle.color(color)
     new_turtle.goto(x=-390, y = y_pos)
