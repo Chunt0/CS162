@@ -55,4 +55,6 @@ my_canvas.grid(column=1, row=1)
 # start_button = tk.Button(text="Start", command=count_down(hello_text))
 # start_button.grid(column=1,row=0)
 
+x=5
+
 window.mainloop()
