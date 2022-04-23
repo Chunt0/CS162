@@ -12,7 +12,7 @@ window = tk.Tk()
 window.title("Focus-To-Do")
 
 my_canvas = tk.Canvas(width=1000, height=1000, bg="#EBFAD0")
-path = "/home/chunt/VScode/CS162/Assignment4/forest.png"
+path = "/home/chunt/Code/CS162/Assignment4/forest.png"
 img = tk.PhotoImage(file=path)
 
 my_canvas.create_image(200,225, image= img)
