@@ -1,32 +1,69 @@
+# CHRISTOPHER HUNT
+# CS 162
+
 import tkinter as tk
+import random
 
-# Homework for this week is to expand on this app
+##COLORS
+GREEN = "#05C005"
+PURPLE = "#4B00D0"
+YELLOW = "#FFCA03"
+RED = "#F90716"
+ORANGE = "#FF5403"
 
-# Extra - Make an image with tkinter and post image on discord
+##STUDY TIMES
+STUDY = 25
+SHORT = 5
+LONG = 15
 
-window = tk.Tk()
-window.title("Pomodoro")
+INTERVAL = 1
+def count_down(count):
+    global INTERVAL
+    count_mins = count // 60 # floor division
+    count_secs = count % 60 # modulus
 
-canvas = tk.Canvas(width=1000, height=1000, bg="#4B00D0")
+    if(count_secs < 10): # modify the format of count_secs
+        count_secs = f"{count_secs:02d}"
+    canvas.itemconfig(timer_text, text=f"{count_mins}:{count_secs}")
+    if(count > 0):
+        window.after(1, count_down, count - 1)
+    if(count == 0):
+        INTERVAL += 1
 
-forest_png = "./forest.png"
-forest_img = tk.PhotoImage(file=forest_png)
+def start_timer():
+    global INTERVAL
+    study_sec = STUDY * 60
+    short_break = SHORT * 60
+    long_break = LONG * 60
+    if(INTERVAL == 1 or INTERVAL == 3 or INTERVAL == 5 or INTERVAL == 7):
+        count_down(study_sec)
+    elif(INTERVAL == 2 or INTERVAL == 4 or INTERVAL == 6):
+        count_down(short_break)
+    elif(INTERVAL == 8):
+        count_down(long_break)
 
-lotus1_png = "./lotus1.png"
-lotus1_img = tk.PhotoImage(file=lotus1_png)
+def restart_timer():
+    global INTERVAL
+    INTERVAL = 1
 
-violet1_png = "./violet1.png"
-violet1_img = tk.PhotoImage(file=violet1_png)
+# Create Window
+window =tk.Tk()
+window.title("pomodoro")
 
-toadstool1_png = "./toadstool1.png"
-toadstool1_img = tk.PhotoImage(file=toadstool1_png)
+# Upper Image
+canvas = tk.Canvas(width=500, height=500, bg=PURPLE)
+pomo_png_path = "/home/chunt/Code/CS162/Assignment4/png/pomo2.png"
+pomo_img = tk.PhotoImage(file=pomo_png_path)
+canvas.create_image(200,200, image=pomo_img)
+canvas.grid(column=1, row=0)
+interval_label = tk.Label(text="TIMER", bg=GREEN, fg=PURPLE, font=("Helvetica", 48, "bold"))
+interval_label.grid(column=1,row=0)
+timer_text = canvas.create_text(200,200, text="00:00", fill=YELLOW, font =("Helvetica", 48, "bold"))
 
-canvas.create_image(600,500, image=forest_img)
-#canvas.create_image(100,50, image=lotus1_img)
-#canvas.create_image(100,50, image=violet1_img)
-#canvas.create_image(200,225, image=toadstool1_img)
-
-canvas.grid(column=0, row=0)
-
+# Button
+start_button = tk.Button(text="START", bd=50, command=start_timer)
+start_button.grid(column=0,row=0)
+restart_button = tk.Button(text="RESTART", bd=50, command=restart_timer)
+restart_button.grid(column=2,row=0)
 
 window.mainloop()
