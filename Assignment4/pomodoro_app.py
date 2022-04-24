@@ -17,6 +17,7 @@ SHORT = 5
 LONG = 15
 
 INTERVAL = 1
+
 def count_down(count):
     global INTERVAL
     count_mins = count // 60 # floor division
