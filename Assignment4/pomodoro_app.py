@@ -27,7 +27,7 @@ def count_down(count):
         count_secs = f"{count_secs:02d}"
     canvas.itemconfig(timer_text, text=f"{count_mins}:{count_secs}")
     if(count > 0):
-        window.after(1, count_down, count - 1)
+        window.after(1000, count_down, count - 1)
     if(count == 0):
         INTERVAL += 1
 
@@ -50,8 +50,9 @@ def restart_timer():
 # Create Window
 window =tk.Tk()
 window.title("pomodoro")
+window.config(bg=RED)
 
-# Upper Image
+# Image
 canvas = tk.Canvas(width=500, height=500, bg=PURPLE)
 pomo_png_path = "/home/chunt/Code/CS162/Assignment4/png/pomo2.png"
 pomo_img = tk.PhotoImage(file=pomo_png_path)
