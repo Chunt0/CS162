@@ -14,10 +14,27 @@ def get_wordlist(path_to_wordlist):
 
     return wordlist
 
-def matches(word, guess):
-    pass
+def match_word(word, guess):
+    guess = guess.upper()
+    word = word.upper()
+    answer=[]
+    for index in range(5):
+        if word[index] == guess[index]:
+            check = (guess[index], 1)
+        elif (word[index] != guess[index] and word.count(guess[index]) > 0):
+            check = (guess[index], 2)
+        elif (word.count(guess[index]) == 0):
+            check = (guess[index], 0)
+        else:
+            check = "ERROR"
+        answer.append(check)
+        
+    return answer
 
+# wordlist_path = "/home/chunt/Code/CS162/Assignment4/wordl/wordlist.txt"
+# wordlist = get_wordlist(wordlist_path)
 
-wordlist_path = "/home/chunt/Code/CS162/Assignment4/wordl/wordlist.txt"
-wordlist = get_wordlist(wordlist_path)
-print(wordlist)
+# print(wordlist[145])
+# guess = input("Guess: ")
+# solution = match_word(wordlist[145], guess)
+# print(solution)

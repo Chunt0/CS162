@@ -2,19 +2,36 @@
 # CS 162
 # WORDL
 
+import random
 import tkinter as tk
+from ldrow_funcs import get_wordlist, match_word
 
-##COLORS
+def reset_game():
+    pass
+
+def make_guess():
+    guessed_word = guess_entry.get()
+    solution = match_word(word, guessed_word)
+    for index, answer in enumerate(solution):
+        pass
+
+MAX_GUESSES = 6
+
+################################# COLORS ########################################
 BLACK = "black"
 WHITE = "white"
 YELLOW = "#FFCA03"
 GREEN = "#62B73E"
 GREY = "#5B5B5B"
+#################################################################################
 
-# Create Window
+############################## Create Window ####################################
+
 window =tk.Tk()
 window.title("ldrow")
 window.config(padx=50, pady=50, bg=BLACK)
+
+#################################################################################
 
 ################################### TITLE #######################################
 
@@ -35,16 +52,15 @@ W_label.grid(column=5,row=0)
 #################################################################################
 
 ################################### ENTRY ROW ###################################
-reset_button = tk.Button(text="RESET", width=4, command="")
+reset_button = tk.Button(text="RESET", width=4, command=reset_game)
 reset_button.grid(column=2, row=1)
 
 guess_entry = tk.Entry(window, width=5)
 guess_entry.grid(column=3,row=1)
 
-guess_button = tk.Button(text="GUESS", width=4, command="")
+guess_button = tk.Button(text="GUESS", width=4, command=make_guess)
 guess_button.grid(column=4,row=1)
 #################################################################################
-
 
 ################################### ROW 1 #######################################
 canvas = tk.Canvas(width=50, height=50, bg=GREY)
@@ -219,6 +235,9 @@ R8_C5_label.grid(column=5,row=8)
 
 row5 = [R8_C1_label, R8_C2_label, R8_C3_label, R8_C4_label, R8_C5_label]
 #################################################################################
+path_to_wordlist = "./wordlist.txt"
+wordlist = get_wordlist(path_to_wordlist)
+word = random.choice(wordlist)
 
 # Guess Matrix. Used to easily access each guess square.
 guess_matrix = [row0, row1, row2, row3, row4, row5]
