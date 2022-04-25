@@ -43,14 +43,14 @@ W_label = tk.Label(text="W", bg=GREEN, fg=PURPLE, font=("Helvetica", 48, "bold")
 W_label.grid(column=5,row=0)
 #################################################################################
 
-################################### ENTRYROW ####################################
-reset_button = tk.Button(text="RESET", command="")
+################################### ENTRY ROW ###################################
+reset_button = tk.Button(text="RESET", width=4, command="")
 reset_button.grid(column=2, row=1)
 
 guess_entry = tk.Entry(window, width=5)
 guess_entry.grid(column=3,row=1)
 
-guess_button = tk.Button(text="GUESS", command="")
+guess_button = tk.Button(text="GUESS", width=4, command="")
 guess_button.grid(column=4,row=1)
 #################################################################################
 
@@ -80,6 +80,8 @@ canvas = tk.Canvas(width=50, height=50, bg=PURPLE)
 canvas.grid(column=5, row=3)
 R3_C5_label = tk.Label(text="", bg=GREEN, fg=PURPLE, font=("Helvetica", 48, "bold"))
 R3_C5_label.grid(column=5,row=3)
+
+row0 = [ R3_C1_label, R3_C2_label, R3_C3_label, R3_C4_label, R3_C5_label]
 #################################################################################
 
 ################################### ROW 2 #######################################
@@ -107,6 +109,8 @@ canvas = tk.Canvas(width=50, height=50, bg=PURPLE)
 canvas.grid(column=5, row=4)
 R4_C5_label = tk.Label(text="", bg=GREEN, fg=PURPLE, font=("Helvetica", 48, "bold"))
 R4_C5_label.grid(column=5,row=4)
+
+row1 = [R4_C1_label, R4_C2_label, R4_C3_label, R4_C4_label, R4_C5_label]
 #################################################################################
 
 ################################## ROW 3 #######################################
@@ -134,6 +138,8 @@ canvas = tk.Canvas(width=50, height=50, bg=PURPLE)
 canvas.grid(column=5, row=5)
 R5_C5_label = tk.Label(text="", bg=GREEN, fg=PURPLE, font=("Helvetica", 48, "bold"))
 R5_C5_label.grid(column=5,row=5)
+
+row2 = [R5_C1_label, R5_C2_label, R5_C3_label, R5_C4_label, R5_C5_label]
 #################################################################################
 
 ################################### ROW 4 #######################################
@@ -161,6 +167,8 @@ canvas = tk.Canvas(width=50, height=50, bg=PURPLE)
 canvas.grid(column=5, row=6)
 R6_C5_label = tk.Label(text="", bg=GREEN, fg=PURPLE, font=("Helvetica", 48, "bold"))
 R6_C5_label.grid(column=5,row=6)
+
+row3 = [R6_C1_label, R6_C2_label, R6_C3_label, R6_C4_label, R6_C5_label]
 #################################################################################
 
 ################################### ROW 5 #######################################
@@ -188,6 +196,8 @@ canvas = tk.Canvas(width=50, height=50, bg=PURPLE)
 canvas.grid(column=5, row=7)
 R7_C5_label = tk.Label(text="", bg=GREEN, fg=PURPLE, font=("Helvetica", 48, "bold"))
 R7_C5_label.grid(column=5,row=7)
+
+row4 = [R7_C1_label, R7_C2_label, R7_C3_label, R7_C4_label, R7_C5_label]
 #################################################################################
 
 ################################### ROW 6 #######################################
@@ -215,9 +225,12 @@ canvas = tk.Canvas(width=50, height=50, bg=PURPLE)
 canvas.grid(column=5, row=8)
 R8_C5_label = tk.Label(text="", bg=GREEN, fg=PURPLE, font=("Helvetica", 48, "bold"))
 R8_C5_label.grid(column=5,row=8)
+
+row5 = [R8_C1_label, R8_C2_label, R8_C3_label, R8_C4_label, R8_C5_label]
 #################################################################################
 
-
+# Guess Matrix. Used to easily access each guess square.
+guess_matrix = [row0, row1, row2, row3, row4, row5]
 
 
 window.mainloop()
