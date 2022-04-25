@@ -13,7 +13,7 @@ ORANGE = "#FF5403"
 
 # Create Window
 window =tk.Tk()
-window.title("pomodoro")
+window.title("ldrow")
 window.config(padx=50, pady=50, bg="black")
 
 ################################### TITLE #######################################
@@ -42,6 +42,18 @@ canvas.grid(column=5, row=0)
 W_label = tk.Label(text="W", bg=GREEN, fg=PURPLE, font=("Helvetica", 48, "bold"))
 W_label.grid(column=5,row=0)
 #################################################################################
+
+################################### ENTRYROW ####################################
+reset_button = tk.Button(text="RESET", command="")
+reset_button.grid(column=2, row=1)
+
+guess_entry = tk.Entry(window, width=5)
+guess_entry.grid(column=3,row=1)
+
+guess_button = tk.Button(text="GUESS", command="")
+guess_button.grid(column=4,row=1)
+#################################################################################
+
 
 ################################### ROW 1 #######################################
 canvas = tk.Canvas(width=50, height=50, bg=PURPLE)
@@ -206,8 +218,6 @@ R8_C5_label.grid(column=5,row=8)
 #################################################################################
 
 
-# Button
-#start_button = tk.Button(text="START", bd=50, command=start_timer)
-#restart_button = tk.Button(text="RESTART", bd=50, command=restart_timer)
+
 
 window.mainloop()
