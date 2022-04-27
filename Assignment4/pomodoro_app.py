@@ -18,7 +18,7 @@ SHORT = 5
 LONG = 15
 
 INTERVAL = 1
-POMO_PNG_PATH = "./PomodoroPics/pomo2.png" # You may need to change this.
+POMO_PNG_PATH = "./png/pomo2.png" # You may need to change this.
 timer = None
 ################################################################################
 
