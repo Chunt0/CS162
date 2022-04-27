@@ -18,7 +18,7 @@ SHORT = 5
 LONG = 15
 
 INTERVAL = 1
-POMO_PNG_PATH = "/home/chunt/Code/CS162/Assignment4/png/pomo2.png"
+POMO_PNG_PATH = "./PomodoroPics/pomo2.png"
 timer = None
 ################################################################################
 
@@ -37,8 +37,9 @@ def count_down(count: int):
     if count_secs < 10: # modify the format of count_secs
         count_secs = f"{count_secs:02d}"
     canvas.itemconfig(timer_text, text=f"{count_mins}:{count_secs}")
+    canvas.itemconfig(interval_text, text=f"INTERVAL: {INTERVAL}")
     if count > 0:
-        timer = window.after(1, count_down, count - 1)
+        timer = window.after(1000, count_down, count - 1)
     if count == 0:
         INTERVAL += 1
         start_button["state"] = "active"
@@ -60,7 +61,7 @@ def start_timer():
         count_down(study_sec)
     elif INTERVAL in (2,4,6):
         count_down(short_break)
-    elif INTERVAL== 8:
+    elif INTERVAL == 8:
         count_down(long_break)
 
 def restart_timer():
@@ -80,6 +81,14 @@ def pause_timer():
     if timer:
         window.after_cancel(timer)
         timer = None
+
+def next_interval():
+    """Changes to the next time interval"""
+    global INTERVAL
+    if INTERVAL < 8:
+        INTERVAL += 1
+    else:
+        INTERVAL = 1
 
 def change_study_time():
     """Changes study time. User must enter an int else, nothing happens."""
@@ -105,9 +114,6 @@ def change_long_time():
     except:
         pass
 
-
-
-
 ################################################################################
 
 
@@ -125,7 +131,9 @@ canvas.create_image(200,200, image=pomo_img)
 canvas.grid(column=1, row=0)
 interval_label = tk.Label(text="TIMER", bg=GREEN, fg=PURPLE, font=("Helvetica", 48, "bold"))
 interval_label.grid(column=1,row=0)
-timer_text = canvas.create_text(200,200, text="00:00", fill=YELLOW, font =("Helvetica", 48, "bold"))
+timer_text = canvas.create_text(200,200, text="00:00", fill=YELLOW, font=("Helvetica", 48, "bold"))
+interval_text = canvas.create_text(200,350, text=f"INTERVAL: {INTERVAL}", fill=YELLOW, font=("Helvetica", 48, "bold"))
+
 
 # Button
 start_button = tk.Button(text="START", command=start_timer)
@@ -137,8 +145,11 @@ restart_button.grid(column=2,row=1)
 pause_button = tk.Button(text="PAUSE", command=pause_timer)
 pause_button.grid(column=1,row=1)
 
-exit_button = tk.Button(text="EXIT", command=lambda: window.quit())
-exit_button.grid(column=1,row=4)
+exit_button = tk.Button(text="EXIT", command=window.quit)
+exit_button.grid(column=2,row=4)
+
+next_button = tk.Button(text="NEXT", command=next_interval)
+next_button.grid(column=0, row=4)
 
 # Change Times:
 study_button = tk.Button(text="STUDY TIME", command=change_study_time)
@@ -155,8 +166,6 @@ long_button = tk.Button(text="LONG TIME", command=change_long_time)
 long_button.grid(column=2, row=2)
 long_break_input = tk.Entry(window)
 long_break_input.grid(column=2, row=3)
-
-
 
 
 ################################################################################
