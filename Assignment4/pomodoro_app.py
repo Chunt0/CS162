@@ -81,7 +81,32 @@ def pause_timer():
         window.after_cancel(timer)
         timer = None
 
-    pass
+def change_study_time():
+    """Changes study time. User must enter an int else, nothing happens."""
+    global STUDY
+    try:
+        STUDY = int(study_input.get())
+    except:
+        pass
+
+def change_short_time():
+    """Changes short break time. User must enter an int else, nothing happens."""
+    global SHORT
+    try:
+        SHORT = int(short_break_input.get())
+    except:
+        pass
+
+def change_long_time():
+    """Changes long break time. User must enter an int else, nothing happens."""
+    global LONG
+    try:
+        LONG = int(long_break_input.get())
+    except:
+        pass
+
+
+
 
 ################################################################################
 
@@ -104,13 +129,45 @@ timer_text = canvas.create_text(200,200, text="00:00", fill=YELLOW, font =("Helv
 
 # Button
 start_button = tk.Button(text="START", command=start_timer)
-start_button.grid(column=0,row=0)
+start_button.grid(column=0,row=1)
+
 restart_button = tk.Button(text="RESTART", command=restart_timer)
-restart_button.grid(column=2,row=0)
+restart_button.grid(column=2,row=1)
+
 pause_button = tk.Button(text="PAUSE", command=pause_timer)
 pause_button.grid(column=1,row=1)
+
+exit_button = tk.Button(text="EXIT", command=lambda: window.quit())
+exit_button.grid(column=1,row=4)
+
+# Change Times:
+study_button = tk.Button(text="STUDY TIME", command=change_study_time)
+study_button.grid(column=0, row=2)
+study_input = tk.Entry(window)
+study_input.grid(column=0, row=3)
+
+short_button = tk.Button(text="SHORT TIME", command=change_short_time)
+short_button.grid(column=1, row=2)
+short_break_input = tk.Entry(window)
+short_break_input.grid(column=1, row=3)
+
+long_button = tk.Button(text="LONG TIME", command=change_long_time)
+long_button.grid(column=2, row=2)
+long_break_input = tk.Entry(window)
+long_break_input.grid(column=2, row=3)
+
+
+
 
 ################################################################################
 
 
 window.mainloop()
+
+
+
+
+
+
+
+
