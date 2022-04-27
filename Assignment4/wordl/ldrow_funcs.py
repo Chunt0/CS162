@@ -30,11 +30,3 @@ def match_word(word, guess):
         answer.append(check)
         
     return answer
-
-# wordlist_path = "/home/chunt/Code/CS162/Assignment4/wordl/wordlist.txt"
-# wordlist = get_wordlist(wordlist_path)
-
-# print(wordlist[145])
-# guess = input("Guess: ")
-# solution = match_word(wordlist[145], guess)
-# print(solution)
