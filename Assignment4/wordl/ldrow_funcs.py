@@ -17,16 +17,20 @@ def get_wordlist(path_to_wordlist):
 def match_word(word, guess):
     guess = guess.upper()
     word = word.upper()
-    answer=[]
-    for index in range(5):
-        if word[index] == guess[index]:
-            check = (guess[index], 1)
-        elif (word[index] != guess[index] and word.count(guess[index]) > 0):
-            check = (guess[index], 2)
-        elif (word.count(guess[index]) == 0):
-            check = (guess[index], 0)
-        else:
-            check = "ERROR"
-        answer.append(check)
+    answer = []
+    if len(guess) != 5:
+        pass
+    else:
+        for index in range(5):
+            if word[index] == guess[index]:
+                check = (guess[index], 1)
+            elif (word[index] != guess[index] and word.count(guess[index]) > 0):
+                check = (guess[index], 2)
+            elif (word.count(guess[index]) == 0):
+                check = (guess[index], 0)
+            else:
+                check = ("", 0)
+                print("ERROR")
+            answer.append(check)
         
     return answer

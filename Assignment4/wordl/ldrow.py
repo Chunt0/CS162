@@ -34,8 +34,8 @@ def make_guess():
     global GUESS 
     global MAX_GUESSES
     guessed_word = guess_entry.get()
-    solution = match_word(word, guessed_word)
     if GUESS < MAX_GUESSES and len(guessed_word) == 5:
+        solution = match_word(word, guessed_word)
         for index, answer in enumerate(solution):
             if answer[1] == 0:
                 guess_matrix[GUESS][index].config(text=answer[0], fg=WHITE, bg=GREY)
