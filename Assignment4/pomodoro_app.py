@@ -52,7 +52,7 @@ def start_timer():
     global INTERVAL
     start_button["state"] = "disabled"
     pause_button["state"] = "active"
-    restart_button["state"] = "active"
+    reset_button["state"] = "active"
 
     study_sec = STUDY * 60
     short_break = SHORT * 60
@@ -64,7 +64,7 @@ def start_timer():
     elif INTERVAL == 8:
         count_down(long_break)
 
-def restart_timer():
+def reset_timer():
     """restart_timer resests the interval value to 1."""
     global INTERVAL
     INTERVAL = 1
@@ -76,7 +76,7 @@ def pause_timer():
     global timer
     pause_button["state"] = "disabled"
     start_button["state"] = "active"
-    restart_button["state"] = "active"
+    reset_button["state"] = "active"
 
     if timer:
         window.after_cancel(timer)
@@ -139,8 +139,8 @@ interval_text = canvas.create_text(200,350, text=f"INTERVAL: {INTERVAL}", fill=Y
 start_button = tk.Button(text="START", command=start_timer)
 start_button.grid(column=0,row=1)
 
-restart_button = tk.Button(text="RESTART", command=restart_timer)
-restart_button.grid(column=2,row=1)
+reset_button = tk.Button(text="RESET", command=reset_timer)
+reset_button.grid(column=2,row=1)
 
 pause_button = tk.Button(text="PAUSE", command=pause_timer)
 pause_button.grid(column=1,row=1)
