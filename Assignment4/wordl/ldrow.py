@@ -7,7 +7,7 @@ import tkinter as tk
 from ldrow_funcs import get_wordlist, match_word
 
 MAX_GUESSES = 6
-GUESS = 1
+GUESS = 0
 
 ################################# COLORS ########################################
 BLACK = "black"
@@ -28,14 +28,26 @@ window.config(padx=50, pady=50, bg=BLACK)
 ############################# LDROW FUNCTIONS ##################################
 
 def reset_game():
-    pass
+    pass 
 
 def make_guess():
+    global GUESS 
+    global MAX_GUESSES
     guessed_word = guess_entry.get()
     solution = match_word(word, guessed_word)
-    for index, answer in enumerate(solution):
+    if GUESS < MAX_GUESSES and len(guessed_word) == 5:
+        for index, answer in enumerate(solution):
+            if answer[1] == 0:
+                guess_matrix[GUESS][index].config(text=answer[0], fg=WHITE, bg=GREY)
+            elif answer[1] == 1:
+                guess_matrix[GUESS][index].config(text=answer[0], fg=WHITE, bg=GREEN)
+            elif answer[1] == 2:
+                guess_matrix[GUESS][index].config(text=answer[0], fg=WHITE, bg=YELLOW)
+        GUESS += 1
+    elif GUESS == MAX_GUESSES:
+        GUESS = 0
+    else:
         pass
-
 
 ################################################################################
 
