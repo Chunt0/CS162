@@ -28,13 +28,20 @@ window.config(padx=50, pady=50, bg=BLACK)
 ############################# LDROW FUNCTIONS ##################################
 
 def reset_game():
-    pass 
+    global GUESS
+    global word
+    for guess in range(0,6):
+        for index in range(0,5):
+            guess_matrix[guess][index].config(text="", bg=BLACK)
+    word = random.choice(wordlist)
+    GUESS = 0
+    print(word)
 
 def make_guess():
     global GUESS 
     global MAX_GUESSES
     guessed_word = guess_entry.get()
-    if GUESS < MAX_GUESSES and len(guessed_word) == 5:
+    if GUESS < MAX_GUESSES and len(guessed_word) == 5 and wordlist.count(guessed_word) > 0:
         solution = match_word(word, guessed_word)
         for index, answer in enumerate(solution):
             if answer[1] == 0:

@@ -22,11 +22,12 @@ def match_word(word, guess):
         pass
     else:
         for index in range(5):
+            letter_count = word.count(guess[index])
             if word[index] == guess[index]:
                 check = (guess[index], 1)
-            elif (word[index] != guess[index] and word.count(guess[index]) > 0):
+            elif word[index] != guess[index] and letter_count > 0:
                 check = (guess[index], 2)
-            elif (word.count(guess[index]) == 0):
+            elif (letter_count == 0):
                 check = (guess[index], 0)
             else:
                 check = ("", 0)
