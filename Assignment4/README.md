@@ -24,6 +24,6 @@ How to run program:
 The directory PomodoroPics contains screenshots of each function. You can't visually
 see anything when the reset button is pressed but it works!
 
-There is additionally a directory called wordl. This is an attempt to build my owns
+There is additionally a directory called wordl. This is an attempt to build my own
 Wordle app called LDROW. We'll see if it works, check out the README in that directory
 to get the scoop.
