@@ -6,9 +6,9 @@ class Converter(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Distance Converter Program")
-
+        
         frame = MilesToKm(self)
-        frame.grid(column=0, row=0, sticky="nsew")
+        frame.grid(column=0, row=0)
 
 
 class MilesToKm(tk.Frame):
