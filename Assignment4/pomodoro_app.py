@@ -172,11 +172,3 @@ long_break_input.grid(column=2, row=3)
 
 
 window.mainloop()
-
-
-
-
-
-
-
-
