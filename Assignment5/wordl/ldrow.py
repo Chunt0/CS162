@@ -45,6 +45,18 @@ class Ldrow(tk.Tk):
         self._GREEN = "#62B73E"
         self._GREY = "#5B5B5B"
 
+        self.reset_button = tk.Button(text="RESET", width=4)
+        self.reset_button.grid(column=2, row=9)
+
+        self.exit_button = tk.Button(text="EXIT", command=self.window.quit)
+        self.exit_button.grid(column=4, row=9)
+
+        self.guess_entry = tk.Entry(self.window, width=5)
+        self.guess_entry.grid(column=4,row=1)
+
+        self.guess_button = tk.Button(text="GUESS", width=4, command=self.reset_game)
+        self.guess_button.grid(column=2,row=1)
+
     def reset_game(self):
         for guess in range(0,6):
             for index in range(0,5):
@@ -54,7 +66,7 @@ class Ldrow(tk.Tk):
         print(self._word)
 
     def make_guess(self):
-        guessed_word = guess_entry.get()
+        guessed_word = self.guess_entry.get()
         if self._GUESS < self._MAX_GUESS and len(guessed_word) == 5 and self._wordlist.count(guessed_word) > 0:
             solution = match_word(self._word, guessed_word)
             for index, answer in enumerate(solution):
@@ -117,21 +129,6 @@ class GuessRow(tk.Label):
         self.row = [self.C1_label, self.C2_label, self.C3_label, self.C4_label, self.C5_label]
 #################################################################################
 
-################################### ENTRY ROW ###################################
-reset_button = tk.Button(text="RESET", width=4, command=reset_game)
-reset_button.grid(column=2, row=9)
-
-exit_button = tk.Button(text="EXIT", command=window.quit)
-exit_button.grid(column=4, row=9)
-
-guess_entry = tk.Entry(window, width=5)
-guess_entry.grid(column=4,row=1)
-
-guess_button = tk.Button(text="GUESS", width=4, command=make_guess)
-guess_button.grid(column=2,row=1)
-#################################################################################
-
-#################################################################################
 
 window = Ldrow()
 
