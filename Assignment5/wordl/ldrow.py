@@ -14,22 +14,22 @@ class Ldrow(tk.Tk):
         #self.window = tk.Tk()
         #self.window.title("ldrow")
         #self.window.config(padx=50, pady=50, bg="black")
-        self.row1 = GuessRow(2)
-        self.row2 = GuessRow(3)
-        self.row3 = GuessRow(4)
-        self.row4 = GuessRow(5)
-        self.row5 = GuessRow(6)
-        self.row6 = GuessRow(7)
+        row1 = GuessRow(2)
+        row2 = GuessRow(3)
+        row3 = GuessRow(4)
+        row4 = GuessRow(5)
+        row5 = GuessRow(6)
+        row6 = GuessRow(7)
         self.title_row = Title()
 
         # Rows are updated each round a player guesses
         self.guess_matrix = [
-                self.row1.row,
-                self.row2.row,
-                self.row3.row,
-                self.row4.row,
-                self.row5.row,
-                self.row6.row
+                row1.row,
+                row2.row,
+                row3.row,
+                row4.row,
+                row5.row,
+                row6.row
                 ]
 
         # Untouchables
