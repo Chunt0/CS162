@@ -42,16 +42,16 @@ class Ldrow(tk.Tk):
         self._GREEN = "#62B73E"
         self._GREY = "#5B5B5B"
 
-        self.reset_button = tk.Button(text="RESET", width=4)
+        self.reset_button = tk.Button(text="RESET", width=4, command=self.reset_game)
         self.reset_button.grid(column=2, row=9)
 
         self.exit_button = tk.Button(text="EXIT", command=self.window.quit)
         self.exit_button.grid(column=4, row=9)
 
-        self.guess_entry = tk.Entry(self.window, width=5)
+        self.guess_entry = tk.Entry(width=5)
         self.guess_entry.grid(column=4,row=1)
 
-        self.guess_button = tk.Button(text="GUESS", width=4, command=self.reset_game)
+        self.guess_button = tk.Button(text="GUESS", width=4, command=self.make_guess)
         self.guess_button.grid(column=2,row=1)
 
     def reset_game(self):
