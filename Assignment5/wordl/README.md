@@ -11,6 +11,6 @@ like to have a list of letters showing their status.
 Anyway, feel free to copy this code onto your local machine
 
 Grab everything in this directory, then all you need to do is:
-python3 /path/to/wordl/directory/ldrow.python3
+python3 /path/to/wordl/ldrow_driver.py
 
 Have fun!
