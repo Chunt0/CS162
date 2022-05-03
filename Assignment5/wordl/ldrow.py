@@ -7,9 +7,6 @@ import tkinter as tk
 from ldrow_funcs import get_wordlist, match_word
 
 
-################################# COLORS ########################################
-################################################################################
-
 ############################## WINDOW CLASS ####################################
 class Ldrow(tk.Tk):
     """Root window that UI exists in."""
