@@ -19,6 +19,7 @@ GREY = "#5B5B5B"
 
 ############################## WINDOW CLASS ####################################
 class Root(tk.Tk):
+    """Root window that UI exists in."""
     def __init__(self):
         super().__init__()
         self.window =tk.Tk()
@@ -82,31 +83,21 @@ class Title(tk.Label):
 #################################################################################
 
 ################################ GUESS ROW CLASS ####################################
-class GuessRow(tk.Canvas, tk.Label):
+class GuessRow(tk.Label):
     def __init__(self):
         super().__init__()
-        self.canvas = tk.Canvas(width=50, height=50, bg=GREY)
-        self.canvas.grid(column=1, row=3)
         self.C1_label = tk.Label(text="", bg=BLACK, fg=WHITE, font=("Helvetica", 48, "bold"))
         self.C1_label.grid(column=1,row=3)
 
-        self.canvas = tk.Canvas(width=50, height=50, bg=GREY)
-        self.canvas.grid(column=2, row=3)
         self.C2_label = tk.Label(text="", bg=BLACK, fg=WHITE, font=("Helvetica", 48, "bold"))
         self.C2_label.grid(column=2,row=3)
 
-        self.canvas = tk.Canvas(width=50, height=50, bg=GREY)
-        self.canvas.grid(column=3, row=3)
         self.C3_label = tk.Label(text="", bg=BLACK, fg=WHITE, font=("Helvetica", 48, "bold"))
         self.C3_label.grid(column=3,row=3)
 
-        self.canvas = tk.Canvas(width=50, height=50, bg=GREY)
-        self.canvas.grid(column=4, row=3)
         self.C4_label = tk.Label(text="", bg=BLACK, fg=WHITE, font=("Helvetica", 48, "bold"))
         self.C4_label.grid(column=4,row=3)
 
-        self.canvas = tk.Canvas(width=50, height=50, bg=GREY)
-        self.canvas.grid(column=5, row=3)
         self.C5_label = tk.Label(text="", bg=BLACK, fg=WHITE, font=("Helvetica", 48, "bold"))
         self.C5_label.grid(column=5,row=3)
 
@@ -133,5 +124,6 @@ wordlist = get_wordlist(path_to_wordlist)
 word = random.choice(wordlist)
 print(word)
 
+window = Root()
 
 window.mainloop()
