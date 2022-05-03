@@ -80,4 +80,3 @@ class Ldrow(tk.Tk):
             self._GUESS = 0
         else:
             pass
-
