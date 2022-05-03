@@ -30,4 +30,34 @@ def match_word(word, guess):
             check = ("", 0)
             print("ERROR")
         answer.append(check)
+
+    # Compare guess and word to fix incorrect assignments
+    guess_letter_list = {}
+    for char in guess:
+        guess_letter_list[char] = guess_letter_list.get(char, 0) + 1
+    word_letter_list = {}
+    for char in word:
+        word_letter_list[char] = word_letter_list.get(char,0) + 1
+
     return answer
+
+
+alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+count = [0] * len(alpha)
+temp_alpha_count =list(zip(alpha,count))
+
+alpha_count = []
+for letter in temp_alpha_count:
+    alpha_count.append(list(letter))
+
+
+guess = "deuce"
+word = "scent"
+guess_letter_list = {}
+for char in guess:
+    guess_letter_list[char] = guess_letter_list.get(char, 0) + 1
+word_letter_list = {}
+for char in word:
+    word_letter_list[char] = word_letter_list.get(char,0) + 1
+
+print(f"alpha_count: {alpha_count}")
