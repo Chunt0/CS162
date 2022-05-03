@@ -7,7 +7,6 @@ import tkinter as tk
 from ldrow_funcs import get_wordlist, match_word
 
 
-############################## WINDOW CLASS ####################################
 class Ldrow(tk.Tk):
     """Root window that UI exists in."""
     def __init__(self):
@@ -36,7 +35,6 @@ class Ldrow(tk.Tk):
         # Untouchables
         self._wordlist = get_wordlist("./wordlist.txt")
         self._word = random.choice(self._wordlist)
-        print(self._word)
         self._GUESS = 0
         self._MAX_GUESS = 6
         self._YELLOW = "#FFCA03"
@@ -55,6 +53,8 @@ class Ldrow(tk.Tk):
         self.guess_button = tk.Button(text="GUESS", width=4, command=self.make_guess)
         self.guess_button.grid(column=2,row=1)
 
+        print(self._word)
+        
     def reset_game(self):
         for guess in range(0,6):
             for index in range(0,5):
@@ -80,9 +80,6 @@ class Ldrow(tk.Tk):
         else:
             pass
 
-################################################################################
-
-################################### TITLE CLASS #######################################
 class Title(tk.Label):
     """Creates the title label"""
     def __init__(self):
@@ -102,9 +99,7 @@ class Title(tk.Label):
 
         self.W_label = tk.Label(text="W", bg="black", fg="white", font=("Helvetica", 48, "bold"))
         self.W_label.grid(column=5,row=0)
-#################################################################################
 
-################################ GUESS ROW CLASS ####################################
 class GuessRow(tk.Label):
     """Generates labels of the players guess."""
     def __init__(self,ROW):
@@ -125,7 +120,8 @@ class GuessRow(tk.Label):
         self.C5_label.grid(column=5,row=ROW)
 
         self.row = [self.C1_label, self.C2_label, self.C3_label, self.C4_label, self.C5_label]
-#################################################################################
+
+################################################################################
 
 
 ldrow = Ldrow()
