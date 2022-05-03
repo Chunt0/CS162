@@ -5,7 +5,8 @@
 import random
 import tkinter as tk
 from ldrow_funcs import get_wordlist, match_word
-
+from title import Title
+from guessrow import GuessRow
 
 class Ldrow(tk.Tk):
     """Root window that UI exists in."""
@@ -80,50 +81,3 @@ class Ldrow(tk.Tk):
         else:
             pass
 
-class Title(tk.Label):
-    """Creates the title label"""
-    def __init__(self):
-        super().__init__()
-
-        self.L_label = tk.Label(text="L", bg="black", fg="white", font=("Helvetica", 48, "bold"))
-        self.L_label.grid(column=1,row=0)
-
-        self.D_label = tk.Label(text="D", bg="black", fg="white", font=("Helvetica", 48, "bold"))
-        self.D_label.grid(column=2,row=0)
-
-        self.R_label = tk.Label(text="R", bg="black", fg="white", font=("Helvetica", 48, "bold"))
-        self.R_label.grid(column=3,row=0)
-
-        self.O_label = tk.Label(text="O", bg="black", fg="white", font=("Helvetica", 48, "bold"))
-        self.O_label.grid(column=4,row=0)
-
-        self.W_label = tk.Label(text="W", bg="black", fg="white", font=("Helvetica", 48, "bold"))
-        self.W_label.grid(column=5,row=0)
-
-class GuessRow(tk.Label):
-    """Generates labels of the players guess."""
-    def __init__(self,ROW):
-        super().__init__()
-        self.C1_label = tk.Label(text="", bg="black", fg="white", font=("Helvetica", 48, "bold"))
-        self.C1_label.grid(column=1,row=ROW)
-
-        self.C2_label = tk.Label(text="", bg="black", fg="white", font=("Helvetica", 48, "bold"))
-        self.C2_label.grid(column=2,row=ROW)
-
-        self.C3_label = tk.Label(text="", bg="black", fg="white", font=("Helvetica", 48, "bold"))
-        self.C3_label.grid(column=3,row=ROW)
-
-        self.C4_label = tk.Label(text="", bg="black", fg="white", font=("Helvetica", 48, "bold"))
-        self.C4_label.grid(column=4,row=ROW)
-
-        self.C5_label = tk.Label(text="", bg="black", fg="white", font=("Helvetica", 48, "bold"))
-        self.C5_label.grid(column=5,row=ROW)
-
-        self.row = [self.C1_label, self.C2_label, self.C3_label, self.C4_label, self.C5_label]
-
-################################################################################
-
-
-ldrow = Ldrow()
-
-ldrow.mainloop()
