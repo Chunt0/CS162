@@ -127,6 +127,6 @@ class GuessRow(tk.Label):
 #################################################################################
 
 
-window = Ldrow()
+ldrow = Ldrow()
 
-window.mainloop()
+ldrow.mainloop()
