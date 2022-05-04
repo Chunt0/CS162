@@ -25,13 +25,10 @@ def match_word(word, guess):
     alphabet = string.ascii_uppercase
     output = [['',0],['',0],['',0],['',0],['',0],]
 
-    char = 0
-    letter = 0
-
-    for char in range(0, 5):
-      for letter in range(0, len(alphabet)):
-        if word[char] == alphabet[letter]:
-          freq[letter]+=1
+    for index1 in range(0, 5):
+      for index2 in range(0, len(alphabet)):
+        if word[index1] == alphabet[index2]:
+          freq[index2]+=1
                 
     guess = [char for char in guess] #splitting the guess into a list of chars for manipulation purposes
 
@@ -57,19 +54,3 @@ def match_word(word, guess):
                 output[index]=[guess[index],0]
                  
     return output
-
-def alpha_count(word):
-    # Alphabet Checklist
-    alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    count = [0] * len(alpha)
-    temp_alpha_count =list(zip(alpha,count)) 
-    alpha_count = []
-    for letter in temp_alpha_count:
-        alpha_count.append(list(letter))
-
-    for letter in alpha_count:
-        for char in word:
-            if letter[0] == char:
-                letter[1] += 1
-    return alpha_count
-
