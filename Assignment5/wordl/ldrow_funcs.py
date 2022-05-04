@@ -25,7 +25,7 @@ def match_word(word, guess):
     alphabet = string.ascii_uppercase
     output = [['',0],['',0],['',0],['',0],['',0],]
 
-    for index1 in range(0, 5):
+    for index1 in range(0, len(word)):
       for index2 in range(0, len(alphabet)):
         if word[index1] == alphabet[index2]:
           freq[index2]+=1
@@ -41,7 +41,7 @@ def match_word(word, guess):
         elif word[index] == guess[index]:
             output[index] = [guess[index], 1]
             freq[alphabet.index(guess[index])] -=1 #decrement our list of freqs
-            guess[index] = 0 #set this letter to 0
+            guess[index] = 0 #set this letter to 0 in order to weed out the correct matches
 
 
     #now we'll do a seperate loop to deal with multiple/misplaced letters
