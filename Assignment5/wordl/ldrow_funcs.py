@@ -2,6 +2,8 @@
 # CS162
 # LDROW FUNCTIONS
 
+import string
+
 def get_wordlist(path_to_wordlist):
 
     with open(path_to_wordlist) as wlist:
@@ -18,44 +20,43 @@ def match_word(word, guess):
     # Format guess and word, make answer list
     guess = guess.upper()
     word = word.upper()
-    answer = []
 
-    word_alpha_count = alpha_count(word)
-    guess_alpha_count = alpha_count(guess)
-    
-   # Check if guess letter matchs or is in word letter
-    for index in range(5):
-        letter_count = word.count(guess[index])
-        if word[index] == guess[index]:
-            check = [guess[index], 1]
-        elif word[index] != guess[index] and letter_count > 0:
-            check = [guess[index], 2]
-        elif (letter_count == 0):
-            check = [guess[index], 0]
-        else:
-            check = ["", 0]
-            print("ERROR")
-        answer.append(check)
+    freq = [0] * 26
+    alphabet = string.ascii_uppercase
+    output = [['',0],['',0],['',0],['',0],['',0],]
 
-    # Figure out how to deal with doubles and wrong positions
-    # This whole section feels like a mess... Maybe someone can help clean it up?
-    for i in range(0,len(word_alpha_count)):
-        # Check for condition where the error occurs
-        if guess_alpha_count[i][1] > 1 and word_alpha_count[i][1] > 0 and guess_alpha_count[i][1] != word_alpha_count[i][1]:
-            # Find if the first instance is yellow, if yes, then is second yellow or green? if yellow discard if green discard the first
-            diff = guess_alpha_count[i][1] - word_alpha_count[i][1]
-            letter_to_fix = guess_alpha_count[i][0]
-            index = 0
-            while diff > 0 and index < 5:
-                if word[index] == guess[index] and guess[index] == letter_to_fix and answer[index][1] == 1:
-                    pass
-                elif word[index] != guess[index] and guess[index] == letter_to_fix and answer[index][1] != 1:
-                    answer[index][1] = 0
-                    guess_alpha_count[i][1] -= 1
-                diff = guess_alpha_count[i][1] - word_alpha_count[i][1]
-                index += 1
+    char = 0
+    letter = 0
 
-    return answer
+    for char in range(0, 5):
+      for letter in range(0, len(alphabet)):
+        if word[char] == alphabet[letter]:
+          freq[letter]+=1
+                
+    guess = [char for char in guess] #splitting the guess into a list of chars for manipulation purposes
+
+        #check not a match or exact match
+    for char in range(0, len(word)):
+          
+        if guess[char] not in word:
+            output[char] = [guess[char], 0]
+        
+        elif word[char] == guess[char]:
+            output[char] = [guess[char], 1]
+            freq[alphabet.index(guess[char])] -=1 #decrement our list of freqs
+            guess[char] = 0 #set this letter to 0
+
+
+    #now we'll do a seperate loop to deal with multiple/misplaced letters
+    for char in range(0, len(word)):
+        if guess[char] != 0:
+            if freq[alphabet.index(guess[char])] > 0:
+                output[char] = [guess[char], 2]
+                freq[alphabet.index(guess[char])] -=1
+            else:
+                output[char]=[guess[char],0]
+                 
+    return output
 
 def alpha_count(word):
     # Alphabet Checklist

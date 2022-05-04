@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import tkinter as tk
 
 
@@ -31,7 +33,7 @@ class MilesToKm(tk.Frame):
         try:
             mi = self.user_input.get()
             km = 1.60934 * float(mi)
-            self.result_label.config(text=f"{mi} mi -> {km} km")
+            self.result_label.config(text=f"{mi} mi -> {km: .2f} km")
         except:
             pass
 
