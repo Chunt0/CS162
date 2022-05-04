@@ -12,9 +12,6 @@ class Ldrow(tk.Tk):
     """Root window that UI exists in."""
     def __init__(self):
         super().__init__()
-        #self.window = tk.Tk()
-        #self.window.title("ldrow")
-        #self.window.config(padx=50, pady=50, bg="black")
         row1 = GuessRow(2)
         row2 = GuessRow(3)
         row3 = GuessRow(4)
@@ -44,9 +41,6 @@ class Ldrow(tk.Tk):
 
         self.reset_button = tk.Button(text="RESET", width=4, command=self.reset_game)
         self.reset_button.grid(column=4, row=1)
-
-        #self.exit_button = tk.Button(text="EXIT", command=self.window.quit)
-        #self.exit_button.grid(column=4, row=9)
 
         self.guess_entry = tk.Entry(width=5)
         self.guess_entry.grid(column=3,row=1)
