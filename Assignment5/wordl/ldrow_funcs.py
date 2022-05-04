@@ -36,25 +36,25 @@ def match_word(word, guess):
     guess = [char for char in guess] #splitting the guess into a list of chars for manipulation purposes
 
         #check not a match or exact match
-    for char in range(0, len(word)):
+    for index in range(0, len(word)):
           
-        if guess[char] not in word:
-            output[char] = [guess[char], 0]
+        if guess[index] not in word:
+            output[index] = [guess[index], 0]
         
-        elif word[char] == guess[char]:
-            output[char] = [guess[char], 1]
-            freq[alphabet.index(guess[char])] -=1 #decrement our list of freqs
-            guess[char] = 0 #set this letter to 0
+        elif word[index] == guess[index]:
+            output[index] = [guess[index], 1]
+            freq[alphabet.index(guess[index])] -=1 #decrement our list of freqs
+            guess[index] = 0 #set this letter to 0
 
 
     #now we'll do a seperate loop to deal with multiple/misplaced letters
-    for char in range(0, len(word)):
-        if guess[char] != 0:
-            if freq[alphabet.index(guess[char])] > 0:
-                output[char] = [guess[char], 2]
-                freq[alphabet.index(guess[char])] -=1
+    for index in range(0, len(word)):
+        if guess[index] != 0:
+            if freq[alphabet.index(guess[index])] > 0:
+                output[index] = [guess[index], 2]
+                freq[alphabet.index(guess[index])] -=1
             else:
-                output[char]=[guess[char],0]
+                output[index]=[guess[index],0]
                  
     return output
 
