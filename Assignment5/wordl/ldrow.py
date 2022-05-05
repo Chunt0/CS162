@@ -7,6 +7,7 @@ import tkinter as tk
 from ldrow_funcs import get_wordlist, match_word
 from title import Title
 from guessrow import GuessRow
+from keyboard import Keyboard
 
 class Ldrow(tk.Tk):
     """Root window that UI exists in."""
@@ -19,7 +20,7 @@ class Ldrow(tk.Tk):
         row5 = GuessRow(6)
         row6 = GuessRow(7)
         self.title_row = Title()
-
+        self.keyboard = Keyboard(6,3)
         # Rows are updated each round a player guesses
         self.guess_matrix = [
                 row1.row,
@@ -65,10 +66,13 @@ class Ldrow(tk.Tk):
             for index, answer in enumerate(solution):
                 if answer[1] == 0:
                     self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._GREY)
+                    self.keyboard.key_matrix.get(answer[0]).config(text='')
                 elif answer[1] == 1:
                     self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._GREEN)
+                    self.keyboard.key_matrix.get(answer[0]).config(bg=self._GREEN)
                 elif answer[1] == 2:
                     self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._YELLOW)
+                    self.keyboard.key_matrix.get(answer[0]).config(bg=self._YELLOW)
             self._GUESS += 1
         elif self._GUESS == self._MAX_GUESS:
             self._GUESS = 0
