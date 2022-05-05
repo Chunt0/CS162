@@ -2,7 +2,7 @@
 # CS 162
 # WORDL
 
-import random
+import random, string
 import tkinter as tk
 from ldrow_funcs import get_wordlist, match_word
 from title import Title
@@ -50,11 +50,13 @@ class Ldrow(tk.Tk):
         self.guess_button.grid(column=2,row=1)
 
         print(self._word)
-        
+
     def reset_game(self):
         for guess in range(0,6):
             for index in range(0,5):
                 self.guess_matrix[guess][index].config(text="", bg="black")
+        for letter in string.ascii_uppercase:
+            self.keyboard.key_matrix.get(letter).config(text=letter, bg = "black", fg = "white")
         self._word = random.choice(self._wordlist)
         self._GUESS = 0
         print(self._word)
@@ -66,13 +68,15 @@ class Ldrow(tk.Tk):
             for index, answer in enumerate(solution):
                 if answer[1] == 0:
                     self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._GREY)
-                    self.keyboard.key_matrix.get(answer[0]).config(text='')
+                    if self.keyboard.key_matrix.get(answer[0]).cget("bg") == "black":
+                        self.keyboard.key_matrix.get(answer[0]).config(text='')
                 elif answer[1] == 1:
                     self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._GREEN)
                     self.keyboard.key_matrix.get(answer[0]).config(bg=self._GREEN)
                 elif answer[1] == 2:
                     self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._YELLOW)
-                    self.keyboard.key_matrix.get(answer[0]).config(bg=self._YELLOW)
+                    if self.keyboard.key_matrix.get(answer[0]).cget("bg") != self._GREEN:
+                        self.keyboard.key_matrix.get(answer[0]).config(bg=self._YELLOW)
             self._GUESS += 1
         elif self._GUESS == self._MAX_GUESS:
             self._GUESS = 0
