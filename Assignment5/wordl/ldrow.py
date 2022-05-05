@@ -80,5 +80,6 @@ class Ldrow(tk.Tk):
             self._GUESS += 1
         elif self._GUESS == self._MAX_GUESS:
             self._GUESS = 0
+            self.reset_game()
         else:
             pass
