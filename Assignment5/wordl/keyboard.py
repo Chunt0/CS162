@@ -5,7 +5,10 @@
 import tkinter as tk
 
 class Keyboard(tk.Label):
-    """"""
+    """
+    A bunch of labels that correspond with the QWERTY keyboard. Also
+    all of the labels in a dictionary called key_matrix.
+    """
     def __init__(self, COL, ROW):
         self.Q = tk.Label(text="Q", bg="black", fg="white", font=("Helvetica", 48, "bold"))
         self.Q.grid(column=COL,row=ROW)
