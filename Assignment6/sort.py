@@ -146,7 +146,7 @@ def heap_sort(sort_list):
 
 ################################################################################
 # If you don't have numpy, you can make this list into any list of numbers you would like.
-rand_list = np.random.randint(1,100001,100)
+rand_list = np.random.randint(0,10,10)
 
 print(f"Original Random List: \n{rand_list}")
 
