@@ -13,14 +13,14 @@ def selection_sort(sort_list):
     # Loop through each variable, make it the smallest value.
     for index1 in range(0, len(sort_list)):
         minimum = index1
-        # Compare this value to all other values after it in the list, 
+        # Compare this value to all other values after it in the list,
         # if smaller, make that index the minimum
         for index2 in range(index1+1, len(sort_list)):
-            if sort_list[index2] < sort_list[minimum]:
+            if sort_list[index2] < sort_list[minimum]: # Comparing values
                 minimum = index2
-        # This is where all the magic happens -> swap index1 position with the 
+        # This is where all the magic happens -> swap index1 position with the
         # smallest value left in the list
-        sort_list[index1], sort_list[minimum] = sort_list[minimum], sort_list[index1]
+        sort_list[index1], sort_list[minimum] = sort_list[minimum], sort_list[index1] # Swapping values
     return sort_list
 
 ################################################################################
@@ -36,8 +36,8 @@ def bubble_sort(sort_list):
 
         # Loop through the list, larger values are "bubbled" up to the end of the list
         for index in range(0,len(sort_list)-1):
-            if sort_list[index] > sort_list[index+1]:
-                sort_list[index], sort_list[index+1] = sort_list[index+1], sort_list[index]
+            if sort_list[index] > sort_list[index+1]: # Comparing values
+                sort_list[index], sort_list[index+1] = sort_list[index+1], sort_list[index] # Swapping values
                 swap = True
 
     return sort_list
