@@ -1,8 +1,6 @@
 # Christopher Hunt
 # CS162
-# selection_sort.py
-
-import numpy as np
+# sort.py
 
 ################################################################################
 
@@ -11,7 +9,7 @@ def selection_sort(sort_list):
     """Selection Sort Function."""
 
     # Loop through each variable, make it the smallest value.
-    for index1 in range(0, len(sort_list)):
+    for index1, _ in enumerate(sort_list):
         minimum = index1
         # Compare this value to all other values after it in the list,
         # if smaller, make that index the minimum
@@ -31,6 +29,7 @@ def bubble_sort(sort_list):
     # Swap is used as the main loop driver.
     swap = True
     while swap:
+        assert swap == True
         # Reset the main driver condition
         swap = False
 
