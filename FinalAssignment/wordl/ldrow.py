@@ -78,20 +78,23 @@ class Ldrow(tk.Tk):
 
         # Makes sure the player doesn't exceed guess limit or inputs a word incorrectly
         if self._GUESS < self._MAX_GUESS and len(guessed_word) == 5 and self._wordlist.count(guessed_word) > 0:
-            solution = self.match_word(self._word, guessed_word)
-            for index, answer in enumerate(solution):
-                if answer[1] == 0:
-                    self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._GREY)
-                    if self.keyboard.key_matrix.get(answer[0]).cget("bg") == "black":
-                        self.keyboard.key_matrix.get(answer[0]).config(text='')
-                elif answer[1] == 1:
-                    self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._GREEN)
-                    self.keyboard.key_matrix.get(answer[0]).config(bg=self._GREEN)
-                elif answer[1] == 2:
-                    self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._YELLOW)
-                    if self.keyboard.key_matrix.get(answer[0]).cget("bg") != self._GREEN:
-                        self.keyboard.key_matrix.get(answer[0]).config(bg=self._YELLOW)
-            self._GUESS += 1
+            try:
+                solution = self.match_word(self._word, guessed_word)
+                for index, answer in enumerate(solution):
+                    if answer[1] == 0:
+                        self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._GREY)
+                        if self.keyboard.key_matrix.get(answer[0]).cget("bg") == "black":
+                            self.keyboard.key_matrix.get(answer[0]).config(text='')
+                    elif answer[1] == 1:
+                        self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._GREEN)
+                        self.keyboard.key_matrix.get(answer[0]).config(bg=self._GREEN)
+                    elif answer[1] == 2:
+                        self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._YELLOW)
+                        if self.keyboard.key_matrix.get(answer[0]).cget("bg") != self._GREEN:
+                            self.keyboard.key_matrix.get(answer[0]).config(bg=self._YELLOW)
+                self._GUESS += 1
+            except:
+                pass
         elif self._GUESS == self._MAX_GUESS:
             self._GUESS = 0
             self.reset_game()

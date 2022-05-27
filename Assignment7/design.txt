@@ -1,0 +1,26 @@
+Christopher Hunt
+CS162
+Assignment 7 - Design
+
+1. Pick a generic object where something could cause an exception in its state:
+    For this assignment I will be creating a basic program that uses a generic
+    object called "Animal". This object will have specific exception states.
+
+2. Describe a generic exception that could happen in your object.
+    - AnimalDies - If animal dies - exception is called
+    - AnimalExhaustion - If max energy is exceeded - exception is called
+
+3. Describe two subclasses of the object.
+    - Bear: Is a mammal, exists on land, has a max speed, has claws
+    - Salmon: Is a fish, exists in water, cannot exist out of water, has a max speed
+    - Eagle: Is a bird, can fly and walk, has two movement options, has a max speed
+
+4. Describe two subclasses of the exception.
+    - AnimalDies:
+        AnimalStarves - If animal doesn't eat over several cycles it dies.
+        AnimalDiesInCombat - If animal fights with another animal and HP reaches 0, it dies.
+
+5. Draw an inheritance diagram that shows the relationships between the various classes and exceptions
+    See inheritance_diagram.txt
+
+
