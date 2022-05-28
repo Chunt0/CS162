@@ -8,11 +8,14 @@ from animals import Bear, Eagle, Salmon
 class Arena():
     """Class object that allows for two animals to battle."""
     def __init__(self):
-        self.player = random.choice([Bear(-5), Eagle(-5), Salmon(-5)])
-        self.comp = random.choice([Bear(5), Eagle(5), Salmon(5)])
+        self.left = -5 # As far left as Animals can go
+        self.right = 5 # As far right as Animals can go
+        self.player = random.choice([Bear(self.left), Eagle(self.left), Salmon(self.left)])
+        self.comp = random.choice([Bear(self.right), Eagle(self.right), Salmon(self.right)])
 
     def playerattack(self):
-        pass
+        if abs((self.player.pos - self.comp.pos)) < self.player.reach:
+            pass
 
     def compAttack(self):
         pass

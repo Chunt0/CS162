@@ -21,18 +21,18 @@ class Animal():
 
     def checkHealth(self):
         """Checks Animals health."""
-        if self.HP <= 0:
+        if self.HP > 0:
+            print(f"Current Health: {self.HP}")
+        else:
             print("Your HP hit 0... you die...")
             raise AnimalDies
-        else:
-            print(f"Current Health: {self.HP}")
 
     def checkEnergy(self):
         """Checks Animals energy."""
         if self.energy > 1:
             print(f"Current Energy Level is {self.energy}.\n")
         elif self.energy == 1:
-            print(f"You only have one energy point left! Please eat something next round! or else...\n")
+            print("You only have one energy point left! Please eat something next round! or else...\n")
         else:
             raise AnimalExhaustion
 
@@ -62,6 +62,7 @@ class Bear(Animal):
         self.energy = 3
         self.max_age = 16
         self.pos = position
+        self.reach = 2
 
     def move(self, p2loc):
         """Moves Bear closer to opponent."""
@@ -123,6 +124,7 @@ class Eagle(Animal):
         self.energy = 4
         self.max_age = 20
         self.pos = position
+        self.reach = 4
 
     def move(self, p2loc):
         """Moves Eagle closer to opponent."""
@@ -184,6 +186,7 @@ class Salmon(Animal):
         self.energy = 6
         self.max_age = 24
         self.pos = position
+        self.reach = 1
 
     def move(self, p2loc):
         """Moves Salmon closer to opponent."""
