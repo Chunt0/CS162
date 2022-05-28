@@ -36,3 +36,6 @@ class Bear(Animal):
 
     def sound(self):
         print("~Roaar~")
+
+    def __string__(self):
+        print(f"HP: {self.HP}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")

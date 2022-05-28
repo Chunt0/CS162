@@ -16,4 +16,6 @@ class Animal():
 
     def sound(self):
         print("~~Animal sounds~~")
-
+    
+    def __string__(self):
+        print(f"HP: {self.HP}")
