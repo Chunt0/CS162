@@ -11,7 +11,7 @@ class Arena():
         self.animals = [Bear(), Eagle(), Salmon()]
         self.player = random.choice(self.animals)
         self.comp = random.choice(self.animals)
-        self.map = [[0,0] for _ in range(0,10)]
+        self.map = [[0,0] for _ in range(10)]
 
     def menu(self):
         """Menu function, used in driver to play game."""
