@@ -52,7 +52,7 @@ class Animal():
 
 class Bear(Animal):
     """Child class of Animal"""
-    def __init__(self):
+    def __init__(self, position):
         """__init__"""
         super().__init__()
         self.name = "Bear"
@@ -61,6 +61,7 @@ class Bear(Animal):
         self.defense = 2
         self.energy = 3
         self.max_age = 16
+        self.pos = position
 
     def move(self, p1loc, p2loc):
         """Moves Bear closer to opponent."""
@@ -112,7 +113,7 @@ class Bear(Animal):
 
 class Eagle(Animal):
     """Child class of Animal"""
-    def __init__(self):
+    def __init__(self, position):
         """__init__"""
         super().__init__()
         self.name = "Eagle"
@@ -121,6 +122,7 @@ class Eagle(Animal):
         self.defense = 1
         self.energy = 4
         self.max_age = 20
+        self.pos = position
 
     def move(self, p1loc, p2loc):
         """Moves Eagle closer to opponent."""
@@ -172,7 +174,7 @@ class Eagle(Animal):
 
 class Salmon(Animal):
     """Child Class of Animal"""
-    def __init__(self):
+    def __init__(self, position):
         """__init__"""
         super().__init__()
         self.name = "Salmon"
@@ -181,6 +183,7 @@ class Salmon(Animal):
         self.defense = 3
         self.energy = 6
         self.max_age = 24
+        self.pos = position
 
     def move(self, p1loc, p2loc):
         """Moves Salmon closer to opponent."""
