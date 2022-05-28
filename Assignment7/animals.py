@@ -9,7 +9,7 @@ class Animal():
     def __init__(self):
         """__init__"""
         self.HP = 100
-        
+
     def eat(self):
         """Animals gotta eat. Restores one energy point."""
         print("Ate. Restored one energy point.")
@@ -26,7 +26,7 @@ class Animal():
         This is essentially here to demonstrate polymorphism.
         """
         print("~~Animal sounds~~")
-    
+
     def __string__(self):
         """Prints stats."""
         print(f"HP: {self.HP}")
@@ -96,7 +96,7 @@ class Eagle(Animal):
             fly = self.speed
         if p1loc > p2loc:
             fly = -self.speed
-            
+
         return fly
 
     def attack(self):
@@ -110,20 +110,23 @@ class Eagle(Animal):
             evade = -self.speed
         if p1loc > p2loc:
             evade = self.speed
-       
+
         return evade
 
     def sound(self):
         """Eagle makes sound. Demonstrates polymorphism."""
         print("~Screee~")
-    
+
     def __string__(self):
+        """Prints Eagle's stats."""
         print(f"HP: {self.HP}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
 
 ################################################################################
 
 class Salmon(Animal):
+    """Child Class of Animal"""
     def __init__(self):
+        """__init__"""
         super().__init__()
         self.speed = 2
         self.power = 1
@@ -132,6 +135,7 @@ class Salmon(Animal):
         self.max_age = 24
 
     def swim(self, p1loc, p2loc):
+        """Moves Salmon closer to opponent."""
         swim = 0
         if p1loc < p2loc:
             swim = self.speed
@@ -141,9 +145,11 @@ class Salmon(Animal):
         return swim
 
     def attack(self):
+        """Causes damage to opponent."""
         return self.power
 
     def evade(self, p1loc, p2loc):
+        """Moves Salmon farther from opponent."""
         evade = 0
         if p1loc < p2loc:
             evade = -self.speed
@@ -152,7 +158,9 @@ class Salmon(Animal):
         return evade
 
     def sound(self):
+        """Salmon makes sound? Demonstrates polymorphism."""
         print("~Glubglub~")
     
     def __string__(self):
+        """Prints Salmon's stats."""
         print(f"HP: {self.HP}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
