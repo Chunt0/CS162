@@ -60,7 +60,7 @@ class Bear(Animal):
         self.energy = 3
         self.max_age = 16
 
-    def run(self, p1loc, p2loc):
+    def move(self, p1loc, p2loc):
         """Moves Bear closer to opponent."""
         run = 0
         if p1loc < p2loc:
@@ -119,7 +119,7 @@ class Eagle(Animal):
         self.energy = 4
         self.max_age = 20
 
-    def fly(self, p1loc, p2loc):
+    def move(self, p1loc, p2loc):
         """Moves Eagle closer to opponent."""
         fly = 0
         if p1loc < p2loc:
@@ -178,7 +178,7 @@ class Salmon(Animal):
         self.energy = 6
         self.max_age = 24
 
-    def swim(self, p1loc, p2loc):
+    def move(self, p1loc, p2loc):
         """Moves Salmon closer to opponent."""
         swim = 0
         if p1loc < p2loc:
