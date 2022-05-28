@@ -10,6 +10,7 @@ class Animal():
     """Generic Animal class"""
     def __init__(self):
         """__init__"""
+        self.name = "Animal"
         self.HP = 100
         self.energy = 2
 
@@ -54,6 +55,7 @@ class Bear(Animal):
     def __init__(self):
         """__init__"""
         super().__init__()
+        self.name = "Bear"
         self.speed = 1
         self.power = 3
         self.defense = 2
@@ -104,7 +106,7 @@ class Bear(Animal):
 
     def __string__(self):
         """Prints Bear's stats."""
-        print(f"HP: {self.HP}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
+        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
 
 ################################################################################
 
@@ -113,6 +115,7 @@ class Eagle(Animal):
     def __init__(self):
         """__init__"""
         super().__init__()
+        self.name = "Eagle"
         self.speed = 3
         self.power = 2
         self.defense = 1
@@ -163,7 +166,7 @@ class Eagle(Animal):
 
     def __string__(self):
         """Prints Eagle's stats."""
-        print(f"HP: {self.HP}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
+        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
 
 ################################################################################
 
@@ -172,6 +175,7 @@ class Salmon(Animal):
     def __init__(self):
         """__init__"""
         super().__init__()
+        self.name = "Salmon"
         self.speed = 2
         self.power = 1
         self.defense = 3
@@ -222,4 +226,4 @@ class Salmon(Animal):
     
     def __string__(self):
         """Prints Salmon's stats."""
-        print(f"HP: {self.HP}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
+        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
