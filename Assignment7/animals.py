@@ -2,6 +2,8 @@
 # CS162
 # animals.py
 
+from exceptions import AnimalDies, AnimalExhaustion
+
 ################################################################################
 
 class Animal():
@@ -9,22 +11,32 @@ class Animal():
     def __init__(self):
         """__init__"""
         self.HP = 100
+        self.energy = 2
 
     def eat(self):
         """Animals gotta eat. Restores one energy point."""
         print("Ate. Restored one energy point.")
         return 1
 
-    def rest(self):
-        """Animals gotta sleep. Restores one energy point."""
-        print("Rested. Restored one energy point.")
-        return 1
+    def checkHealth(self):
+        """Checks Animals health."""
+        if self.HP <= 0:
+            print("Your HP hit 0... you die...")
+            raise AnimalDies
+        else:
+            print(f"Current Health: {self.HP}")
+
+    def checkEnergy(self):
+        """Checks Animals energy."""
+        if self.energy > 1:
+            print(f"Current Energy Level is {self.energy}.\n")
+        elif self.energy == 1:
+            print(f"You only have one energy point left! Please eat something next round! or else...\n")
+        else:
+            raise AnimalExhaustion
 
     def sound(self):
-        """
-        Animals make sounds. 
-        This is essentially here to demonstrate polymorphism.
-        """
+        """Animals make sounds. This is essentially here to demonstrate polymorphism."""
         print("~~Animal sounds~~")
 
     def __string__(self):
@@ -51,6 +63,9 @@ class Bear(Animal):
             run = self.speed
         if p1loc > p2loc:
             run = -self.speed
+        
+        self.energy -= 1
+        self.checkEnergy()
 
         return run
 
