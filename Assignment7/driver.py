@@ -15,10 +15,19 @@ class Arena():
 
     def playerattack(self):
         if abs((self.player.pos - self.comp.pos)) < self.player.reach:
-            pass
+            damage = self.player.attack() * random.randint(1,5)
+            self.comp.damage(damage)
+        else:
+            print("Player is out of range!")
+            self.player.checkEnergy()
 
     def compAttack(self):
-        pass
+        if abs((self.comp.pos - self.player.pos)) < self.comp.reach:
+            damage = self.comp.attack() * random.randint(1,5)
+            self.player.damage(damage)
+        else:
+            print("Comp is out of range!")
+            self.comp.checkEnergy()
 
     def playerMove(self):
         pass

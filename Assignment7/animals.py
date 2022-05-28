@@ -19,6 +19,10 @@ class Animal():
         print("Ate. Restored one energy point.")
         self.energy += 1
 
+    def damage(self, damage):
+        self.HP -= damage
+        self.checkHealth()
+
     def checkHealth(self):
         """Checks Animals health."""
         if self.HP > 0:
@@ -29,6 +33,7 @@ class Animal():
 
     def checkEnergy(self):
         """Checks Animals energy."""
+        self.energy -= 1
         if self.energy > 1:
             print(f"Current Energy Level is {self.energy}.\n")
         elif self.energy == 1:
@@ -72,7 +77,6 @@ class Bear(Animal):
         if self.pos > p2loc:
             run = -self.speed
         
-        self.energy -= 1
         self.checkEnergy()
 
         return run
@@ -80,7 +84,6 @@ class Bear(Animal):
     def attack(self):
         """Causes damage to opponent."""
         
-        self.energy -= 1
         self.checkEnergy()
 
         return self.power
@@ -93,7 +96,6 @@ class Bear(Animal):
         if self.pos > p2loc:
             evade = self.speed
 
-        self.energy -= 1
         self.checkEnergy()
 
         return evade
@@ -101,7 +103,6 @@ class Bear(Animal):
     def sound(self):
         """Bear makes a sound. Demonstrates polymorphism."""
         
-        self.energy -= 1
         self.checkEnergy()
 
         print("~Roaar~")
@@ -134,7 +135,6 @@ class Eagle(Animal):
         if self.pos > p2loc:
             fly = -self.speed
         
-        self.energy -= 1
         self.checkEnergy()
 
         return fly
@@ -142,7 +142,6 @@ class Eagle(Animal):
     def attack(self):
         """Causes damage to opponent."""
         
-        self.energy -= 1
         self.checkEnergy()
 
         return self.power
@@ -155,7 +154,6 @@ class Eagle(Animal):
         if self.pos > p2loc:
             evade = self.speed
         
-        self.energy -= 1
         self.checkEnergy()
 
         return evade
@@ -163,7 +161,6 @@ class Eagle(Animal):
     def sound(self):
         """Eagle makes sound. Demonstrates polymorphism."""
         
-        self.energy -= 1
         self.checkEnergy()
 
         print("~Screee~")
@@ -186,7 +183,7 @@ class Salmon(Animal):
         self.energy = 6
         self.max_age = 24
         self.pos = position
-        self.reach = 1
+        self.reach = 4
 
     def move(self, p2loc):
         """Moves Salmon closer to opponent."""
@@ -195,16 +192,13 @@ class Salmon(Animal):
             swim = self.speed
         if self.pos > p2loc:
             swim = -self.speed
-        
-        self.energy -= 1
+
         self.checkEnergy()
 
         return swim
 
     def attack(self):
         """Causes damage to opponent."""
-        
-        self.energy -= 1
         self.checkEnergy()
 
         return self.power
@@ -216,20 +210,18 @@ class Salmon(Animal):
             evade = -self.speed
         if self.pos > p2loc:
             evade = self.speed
-        
-        self.energy -= 1
+
         self.checkEnergy()
 
         return evade
 
     def sound(self):
         """Salmon makes sound? Demonstrates polymorphism."""
-        
-        self.energy -= 1
+
         self.checkEnergy()
 
         print("~Glubglub~")
-    
+
     def __string__(self):
         """Prints Salmon's stats."""
         print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\nMax Age: {self.max_age}")
