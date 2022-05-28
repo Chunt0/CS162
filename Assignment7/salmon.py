@@ -12,14 +12,25 @@ class Salmon(Animal):
         self.energy = 6
         self.max_age = 12
 
-    def run(self):
-        pass
+    def swim(self, p1loc, p2loc):
+        swim = 0
+        if p1loc < p2loc:
+            swim = self.speed
+        if p1loc > p2loc:
+            swim = -self.speed
+        
+        return swim
 
     def attack(self):
         pass
 
-    def evade(self):
-        pass
+    def evade(self, p1loc, p2loc):
+        evade = 0
+        if p1loc < p2loc:
+            evade = -self.speed
+        if p1loc > p2loc:
+            evade = self.speed
+        return evade
 
     def sound(self):
-        pass
+        print("~Glubglub~")

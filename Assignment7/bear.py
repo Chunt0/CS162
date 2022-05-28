@@ -13,14 +13,26 @@ class Bear(Animal):
         self.energy = 3
         self.max_age = 8
 
-    def run(self):
-        pass
+    def run(self, p1loc, p2loc):
+        run = 0
+        if p1loc < p2loc:
+            run = self.speed
+        if p1loc > p2loc:
+            run = -self.speed
+
+        return run
 
     def attack(self):
         pass
 
-    def evade(self):
-        pass
+    def evade(self, p1loc, p2loc):
+        evade = 0
+        if p1loc < p2loc:
+            evade = -self.speed
+        if p1loc > p2loc:
+            evade = self.speed
+
+        return evade
 
     def sound(self):
-        pass
+        print("~Roaar~")

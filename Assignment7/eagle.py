@@ -13,14 +13,26 @@ class Eagle(Animal):
         self.energy = 4
         self.max_age = 10
 
-    def run(self):
-        pass
+    def fly(self, p1loc, p2loc):
+        fly = 0
+        if p1loc < p2loc:
+            fly = self.speed
+        if p1loc > p2loc:
+            fly = -self.speed
+            
+        return fly
 
     def attack(self):
         pass
 
-    def evade(self):
-        pass
+    def evade(self, p1loc, p2loc):
+        evade = 0
+        if p1loc < p2loc:
+            evade = -self.speed
+        if p1loc > p2loc:
+            evade = self.speed
+       
+        return evade
 
     def sound(self):
-        pass
+        print("~Screee~")
