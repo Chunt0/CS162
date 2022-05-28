@@ -16,7 +16,7 @@ class Animal():
     def eat(self):
         """Animals gotta eat. Restores one energy point."""
         print("Ate. Restored one energy point.")
-        return 1
+        self.energy += 1
 
     def checkHealth(self):
         """Checks Animals health."""
@@ -37,6 +37,10 @@ class Animal():
 
     def sound(self):
         """Animals make sounds. This is essentially here to demonstrate polymorphism."""
+        
+        self.energy -= 1
+        self.checkEnergy()
+
         print("~~Animal sounds~~")
 
     def __string__(self):
@@ -71,6 +75,10 @@ class Bear(Animal):
 
     def attack(self):
         """Causes damage to opponent."""
+        
+        self.energy -= 1
+        self.checkEnergy()
+
         return self.power
 
     def evade(self, p1loc, p2loc):
@@ -81,10 +89,17 @@ class Bear(Animal):
         if p1loc > p2loc:
             evade = self.speed
 
+        self.energy -= 1
+        self.checkEnergy()
+
         return evade
 
     def sound(self):
         """Bear makes a sound. Demonstrates polymorphism."""
+        
+        self.energy -= 1
+        self.checkEnergy()
+
         print("~Roaar~")
 
     def __string__(self):
@@ -111,11 +126,18 @@ class Eagle(Animal):
             fly = self.speed
         if p1loc > p2loc:
             fly = -self.speed
+        
+        self.energy -= 1
+        self.checkEnergy()
 
         return fly
 
     def attack(self):
         """Causes damage to opponent."""
+        
+        self.energy -= 1
+        self.checkEnergy()
+
         return self.power
 
     def evade(self, p1loc, p2loc):
@@ -125,11 +147,18 @@ class Eagle(Animal):
             evade = -self.speed
         if p1loc > p2loc:
             evade = self.speed
+        
+        self.energy -= 1
+        self.checkEnergy()
 
         return evade
 
     def sound(self):
         """Eagle makes sound. Demonstrates polymorphism."""
+        
+        self.energy -= 1
+        self.checkEnergy()
+
         print("~Screee~")
 
     def __string__(self):
@@ -157,10 +186,17 @@ class Salmon(Animal):
         if p1loc > p2loc:
             swim = -self.speed
         
+        self.energy -= 1
+        self.checkEnergy()
+
         return swim
 
     def attack(self):
         """Causes damage to opponent."""
+        
+        self.energy -= 1
+        self.checkEnergy()
+
         return self.power
 
     def evade(self, p1loc, p2loc):
@@ -170,10 +206,18 @@ class Salmon(Animal):
             evade = -self.speed
         if p1loc > p2loc:
             evade = self.speed
+        
+        self.energy -= 1
+        self.checkEnergy()
+
         return evade
 
     def sound(self):
         """Salmon makes sound? Demonstrates polymorphism."""
+        
+        self.energy -= 1
+        self.checkEnergy()
+
         print("~Glubglub~")
     
     def __string__(self):
