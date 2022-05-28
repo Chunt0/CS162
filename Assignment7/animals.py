@@ -20,6 +20,8 @@ class Animal():
     def __string__(self):
         print(f"HP: {self.HP}")
 
+################################################################################
+
 class Bear(Animal):
     def __init__(self):
         super().__init__()
@@ -56,6 +58,8 @@ class Bear(Animal):
     def __string__(self):
         print(f"HP: {self.HP}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
 
+################################################################################
+
 class Eagle(Animal):
     def __init__(self):
         super().__init__()
@@ -91,6 +95,8 @@ class Eagle(Animal):
     
     def __string__(self):
         print(f"HP: {self.HP}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
+
+################################################################################
 
 class Salmon(Animal):
     def __init__(self):
