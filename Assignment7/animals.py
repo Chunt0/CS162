@@ -63,12 +63,12 @@ class Bear(Animal):
         self.max_age = 16
         self.pos = position
 
-    def move(self, p1loc, p2loc):
+    def move(self, p2loc):
         """Moves Bear closer to opponent."""
         run = 0
-        if p1loc < p2loc:
+        if self.pos < p2loc:
             run = self.speed
-        if p1loc > p2loc:
+        if self.pos > p2loc:
             run = -self.speed
         
         self.energy -= 1
@@ -84,12 +84,12 @@ class Bear(Animal):
 
         return self.power
 
-    def evade(self, p1loc, p2loc):
+    def evade(self, p2loc):
         """Moves Bear farther from opponent."""
         evade = 0
-        if p1loc < p2loc:
+        if self.pos < p2loc:
             evade = -self.speed
-        if p1loc > p2loc:
+        if self.pos > p2loc:
             evade = self.speed
 
         self.energy -= 1
@@ -107,7 +107,7 @@ class Bear(Animal):
 
     def __string__(self):
         """Prints Bear's stats."""
-        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
+        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\nMax Age: {self.max_age}")
 
 ################################################################################
 
@@ -124,12 +124,12 @@ class Eagle(Animal):
         self.max_age = 20
         self.pos = position
 
-    def move(self, p1loc, p2loc):
+    def move(self, p2loc):
         """Moves Eagle closer to opponent."""
         fly = 0
-        if p1loc < p2loc:
+        if self.pos < p2loc:
             fly = self.speed
-        if p1loc > p2loc:
+        if self.pos > p2loc:
             fly = -self.speed
         
         self.energy -= 1
@@ -145,12 +145,12 @@ class Eagle(Animal):
 
         return self.power
 
-    def evade(self, p1loc, p2loc):
+    def evade(self, p2loc):
         """Moves Eagle farther from opponent."""
         evade = 0
-        if p1loc < p2loc:
+        if self.pos < p2loc:
             evade = -self.speed
-        if p1loc > p2loc:
+        if self.pos > p2loc:
             evade = self.speed
         
         self.energy -= 1
@@ -168,7 +168,7 @@ class Eagle(Animal):
 
     def __string__(self):
         """Prints Eagle's stats."""
-        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
+        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\nMax Age: {self.max_age}")
 
 ################################################################################
 
@@ -185,12 +185,12 @@ class Salmon(Animal):
         self.max_age = 24
         self.pos = position
 
-    def move(self, p1loc, p2loc):
+    def move(self, p2loc):
         """Moves Salmon closer to opponent."""
         swim = 0
-        if p1loc < p2loc:
+        if self.pos < p2loc:
             swim = self.speed
-        if p1loc > p2loc:
+        if self.pos > p2loc:
             swim = -self.speed
         
         self.energy -= 1
@@ -206,12 +206,12 @@ class Salmon(Animal):
 
         return self.power
 
-    def evade(self, p1loc, p2loc):
+    def evade(self, p2loc):
         """Moves Salmon farther from opponent."""
         evade = 0
-        if p1loc < p2loc:
+        if self.pos < p2loc:
             evade = -self.speed
-        if p1loc > p2loc:
+        if self.pos > p2loc:
             evade = self.speed
         
         self.energy -= 1
@@ -229,4 +229,4 @@ class Salmon(Animal):
     
     def __string__(self):
         """Prints Salmon's stats."""
-        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nMax Age: {self.max_age}")
+        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\nMax Age: {self.max_age}")
