@@ -10,7 +10,7 @@ class Salmon(Animal):
         self.power = 1
         self.defense = 3
         self.energy = 6
-        self.max_age = 12
+        self.max_age = 24
 
     def swim(self, p1loc, p2loc):
         swim = 0
@@ -22,7 +22,7 @@ class Salmon(Animal):
         return swim
 
     def attack(self):
-        pass
+        return self.power
 
     def evade(self, p1loc, p2loc):
         evade = 0

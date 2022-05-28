@@ -11,7 +11,7 @@ class Eagle(Animal):
         self.power = 2
         self.defense = 1
         self.energy = 4
-        self.max_age = 10
+        self.max_age = 20
 
     def fly(self, p1loc, p2loc):
         fly = 0
@@ -23,7 +23,7 @@ class Eagle(Animal):
         return fly
 
     def attack(self):
-        pass
+        return self.power
 
     def evade(self, p1loc, p2loc):
         evade = 0

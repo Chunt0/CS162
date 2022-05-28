@@ -11,7 +11,7 @@ class Bear(Animal):
         self.power = 3
         self.defense = 2
         self.energy = 3
-        self.max_age = 8
+        self.max_age = 16
 
     def run(self, p1loc, p2loc):
         run = 0
@@ -23,7 +23,7 @@ class Bear(Animal):
         return run
 
     def attack(self):
-        pass
+        return self.power
 
     def evade(self, p1loc, p2loc):
         evade = 0
