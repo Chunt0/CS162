@@ -12,7 +12,7 @@ class Animal():
         """__init__"""
         self.name = "Animal"
         self.HP = 20
-        self.energy = 2
+        self.energy = 3
 
     def eat(self):
         """Animals gotta eat. Restores one energy point."""

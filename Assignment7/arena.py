@@ -87,7 +87,7 @@ class Arena():
 
     def playerRound(self):
         """Moves through players round sequence"""
-        print("########PLAYERROUND########\n1. Move\n2. Evade\n3. Attack\n4. Eat\n5. Sound\n")
+        print("\n\n\n\n########PLAYERROUND########\n1. Move\n2. Evade\n3. Attack\n4. Eat\n5. Sound\n")
         print(f"Player Health: {self.player.HP} | Player Energy: {self.player.energy} | Player Position: {self.player.pos}\nComp Health: {self.comp.HP} | Comp Energy: {self.comp.energy} | Comp Position: {self.comp.pos}")
         try:
             selection = int(input(":: "))
@@ -123,7 +123,7 @@ class Arena():
 
     def menu(self):
         """Menu function, used in driver to play game."""
-        print("~~~~Animal Battle Game~~~~")
+        print("\n\n\n~~~~Animal Battle Game~~~~")
         while True:
             self.playerRound()
             self.compRound()
