@@ -16,7 +16,6 @@ class Animal():
 
     def eat(self):
         """Animals gotta eat. Restores one energy point."""
-        print("Ate. Restored one energy point.")
         self.energy += 1
 
     def damage(self, damage):
@@ -26,7 +25,7 @@ class Animal():
     def checkHealth(self):
         """Checks Animals health."""
         if self.HP > 0:
-            print(f"Current Health: {self.HP}")
+            return
         else:
             print("Your HP hit 0... you die...")
             raise AnimalDies()
@@ -34,10 +33,8 @@ class Animal():
     def checkEnergy(self):
         """Checks Animals energy."""
         self.energy -= 1
-        if self.energy > 1:
-            print(f"Current Energy Level is {self.energy}.\n")
-        elif self.energy == 1:
-            print("You only have one energy point left! Please eat something next round! or else...\n")
+        if self.energy >= 1:
+            return
         else:
             raise AnimalExhaustion()
 
@@ -158,7 +155,6 @@ class Eagle(Animal):
 
     def sound(self):
         """Eagle makes sound. Demonstrates polymorphism."""
-        
         self.checkEnergy()
 
         print("~Screee~")
