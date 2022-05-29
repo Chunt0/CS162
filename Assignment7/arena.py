@@ -90,7 +90,7 @@ class Arena():
     def playerRound(self):
         """Moves through players round sequence"""
         print("########PLAYERROUND########\n1. Move\n2. Evade\n3. Attack\n4. Eat\n5. Sound\n")
-        print(f"Player Health: {self.player.HP} | Player Energy: {self.player.energy}\nPlayer Position: {self.player.pos}\nComp Health: {self.comp.HP} | Comp Position: {self.comp.pos}")
+        print(f"Player Health: {self.player.HP} | Player Energy: {self.player.energy} | Player Position: {self.player.pos}\nComp Health: {self.comp.HP} | Comp Energy: {self.comp.energy} | Comp Position: {self.comp.pos}")
         try:
             selection = int(input(":: "))
             if selection == 1:

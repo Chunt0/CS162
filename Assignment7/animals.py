@@ -11,7 +11,7 @@ class Animal():
     def __init__(self):
         """__init__"""
         self.name = "Animal"
-        self.HP = 100
+        self.HP = 20
         self.energy = 2
 
     def eat(self):
