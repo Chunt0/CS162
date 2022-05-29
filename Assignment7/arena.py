@@ -13,7 +13,7 @@ class Arena():
         self.player = random.choice([Bear(self.left), Eagle(self.left), Salmon(self.left)])
         self.comp = random.choice([Bear(self.right), Eagle(self.right), Salmon(self.right)])
 
-    def playerattack(self):
+    def playerAttack(self):
         """Player attacks comp"""
         if abs((self.player.pos - self.comp.pos)) < self.player.reach:
             damage = (self.player.attack() * random.randint(1,5)) - self.comp.defense
@@ -98,7 +98,7 @@ class Arena():
             elif selection == 2:
                 self.playerEvade()
             elif selection == 3:
-                self.playerattack()
+                self.playerAttack()
             elif selection == 4:
                 self.playerEat()
             elif selection == 5:
@@ -109,5 +109,23 @@ class Arena():
         except ValueError:
             print("You must enter an integer value.\n")
 
+    def compRound(self):
+        """Moves through comps round sequence"""
+        selection = random.randint(1,5)
+        if selection == 1:
+            self.compMove()
+        elif selection == 2:
+            self.compEvade()
+        elif selection == 3:
+            self.compAttack()
+        elif selection == 4:
+            self.compEat()
+        elif selection == 5:
+            self.compSound()
+
     def menu(self):
         """Menu function, used in driver to play game."""
+        print("~~~~Animal Battle Game~~~~")
+        while True:
+            self.playerRound()
+            self.compRound()
