@@ -29,7 +29,7 @@ class Animal():
             print(f"Current Health: {self.HP}")
         else:
             print("Your HP hit 0... you die...")
-            raise AnimalDies
+            raise AnimalDies()
 
     def checkEnergy(self):
         """Checks Animals energy."""
@@ -39,7 +39,7 @@ class Animal():
         elif self.energy == 1:
             print("You only have one energy point left! Please eat something next round! or else...\n")
         else:
-            raise AnimalExhaustion
+            raise AnimalExhaustion()
 
     def sound(self):
         """Animals make sounds. This is essentially here to demonstrate polymorphism."""
