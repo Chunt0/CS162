@@ -19,7 +19,6 @@ class Arena():
             damage = (self.player.attack() * random.randint(1,5)) - self.comp.defense
             self.comp.damage(damage)
         else:
-            print("Player is out of range!")
             self.player.checkEnergy()
 
     def compAttack(self):
@@ -28,7 +27,6 @@ class Arena():
             damage = (self.comp.attack() * random.randint(1,5)) - self.player.defense
             self.player.damage(damage)
         else:
-            print("Comp is out of range!")
             self.comp.checkEnergy()
 
     def playerMove(self):

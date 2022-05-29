@@ -45,9 +45,9 @@ class Animal():
 
         print("~~Animal sounds~~")
 
-    def __string__(self):
+    def __str__(self):
         """Prints stats."""
-        print(f"HP: {self.HP}")
+        return f"HP: {self.HP}"
 
 ################################################################################
 
@@ -102,9 +102,9 @@ class Bear(Animal):
 
         print("~Roaar~")
 
-    def __string__(self):
+    def __str__(self):
         """Prints Bear's stats."""
-        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n")
+        return f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n"
 
 ################################################################################
 
@@ -158,9 +158,9 @@ class Eagle(Animal):
 
         print("~Screee~")
 
-    def __string__(self):
+    def __str__(self):
         """Prints Eagle's stats."""
-        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n")
+        return f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n"
 
 ################################################################################
 
@@ -214,6 +214,6 @@ class Salmon(Animal):
 
         print("~Glubglub~")
 
-    def __string__(self):
+    def __str__(self):
         """Prints Salmon's stats."""
-        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n")
+        return f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n"
