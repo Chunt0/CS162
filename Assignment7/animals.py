@@ -64,7 +64,7 @@ class Bear(Animal):
         self.speed = 1
         self.power = 3
         self.defense = 2
-        self.energy = 3
+        self.energy = 9
         self.pos = position
         self.reach = 2
 
@@ -121,7 +121,7 @@ class Eagle(Animal):
         self.speed = 3
         self.power = 2
         self.defense = 1
-        self.energy = 4
+        self.energy = 12
         self.pos = position
         self.reach = 4
 
@@ -178,7 +178,7 @@ class Salmon(Animal):
         self.speed = 2
         self.power = 1
         self.defense = 3
-        self.energy = 6
+        self.energy = 18
         self.pos = position
         self.reach = 4
 
