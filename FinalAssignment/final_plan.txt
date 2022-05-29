@@ -2,4 +2,29 @@ Christopher Hunt
 CS162
 final_plan.txt
 
+1. What does your program do? 
+    My project is my version of the New York Times word guessing game Wordle.
+    In this game you attempt to guess a secret 5-letter word. Every letter that 
+    is correct in both letter and position is shown as green, if the letter is 
+    correct but in the wrong position it is shown as yellow. The player has 6
+    guesses.
 
+2. Think of different components of your program.
+    I will be using tkinter as the GUI module. I will need to make classes for the
+    various labels and buttons, then a class that pulls them all together. I will
+    need a wordlist of 5-letter words that the game can use for the secret word 
+    and to check if the player guesses an appropriate word.
+
+3. What is the structure of your program?
+    Generate secret word -> wait for user input -> compare user input to secret
+    word -> score players guess appropriately -> return score and update scoreboard
+    
+4. What new skills will you need to acquire? What topics will you need to research?
+    I will primarily be needing to learn how to use tkinter. I'm still unfamiliar
+    with how it all works to make a clean GUI.
+
+5. What libraries may be useful to learn?
+    tkinter
+
+6. What tests should do to make sure each part of your program works?
+    Make sure guess word scoring works properly.
