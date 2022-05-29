@@ -65,7 +65,6 @@ class Bear(Animal):
         self.power = 3
         self.defense = 2
         self.energy = 3
-        self.max_age = 16
         self.pos = position
         self.reach = 2
 
@@ -109,7 +108,7 @@ class Bear(Animal):
 
     def __string__(self):
         """Prints Bear's stats."""
-        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\nMax Age: {self.max_age}")
+        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n")
 
 ################################################################################
 
@@ -123,7 +122,6 @@ class Eagle(Animal):
         self.power = 2
         self.defense = 1
         self.energy = 4
-        self.max_age = 20
         self.pos = position
         self.reach = 4
 
@@ -167,7 +165,7 @@ class Eagle(Animal):
 
     def __string__(self):
         """Prints Eagle's stats."""
-        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\nMax Age: {self.max_age}")
+        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n")
 
 ################################################################################
 
@@ -181,7 +179,6 @@ class Salmon(Animal):
         self.power = 1
         self.defense = 3
         self.energy = 6
-        self.max_age = 24
         self.pos = position
         self.reach = 4
 
@@ -224,4 +221,4 @@ class Salmon(Animal):
 
     def __string__(self):
         """Prints Salmon's stats."""
-        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\nMax Age: {self.max_age}")
+        print(f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n")
