@@ -2,7 +2,7 @@
 # CS162
 # pytests.py
 
-from animals import Animal, Bear, Eagle, Salmon
+from animals import Bear, Eagle, Salmon
 import random
 
 def testEnergyDepletion():
