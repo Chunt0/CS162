@@ -104,7 +104,8 @@ class Bear(Animal):
 
     def __str__(self):
         """Prints Bear's stats."""
-        return f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n"
+        return f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\n\
+                Defense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n"
 
 ################################################################################
 
@@ -160,7 +161,8 @@ class Eagle(Animal):
 
     def __str__(self):
         """Prints Eagle's stats."""
-        return f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n"
+        return f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\n\
+                Defense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n"
 
 ################################################################################
 
@@ -216,4 +218,5 @@ class Salmon(Animal):
 
     def __str__(self):
         """Prints Salmon's stats."""
-        return f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\nDefense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n"
+        return f"HP: {self.HP}\nName: {self.name}\nSpeed: {self.speed}\nPower: {self.power}\n\
+                Defense: {self.defense}\nEnergy: {self.energy}\nPosition: {self.pos}\n"

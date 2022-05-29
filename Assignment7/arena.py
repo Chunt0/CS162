@@ -10,8 +10,14 @@ class Arena():
     def __init__(self):
         self.left = -5 # As far left as Animals can go
         self.right = 5 # As far right as Animals can go
-        self.player = random.choice([Bear(self.left), Eagle(self.left), Salmon(self.left)])
-        self.comp = random.choice([Bear(self.right), Eagle(self.right), Salmon(self.right)])
+        self.player = random.choice(\
+                [Bear(self.left),\
+                Eagle(self.left),\
+                Salmon(self.left)])
+        self.comp = random.choice(\
+                [Bear(self.right),\
+                Eagle(self.right),\
+                Salmon(self.right)])
 
     def playerAttack(self):
         """Player attacks comp"""
@@ -87,8 +93,11 @@ class Arena():
 
     def playerRound(self):
         """Moves through players round sequence"""
-        print("\n\n\n\n########PLAYERROUND########\n1. Move\n2. Evade\n3. Attack\n4. Eat\n5. Sound\n")
-        print(f"Player Health: {self.player.HP} | Player Energy: {self.player.energy} | Player Position: {self.player.pos}\nComp Health: {self.comp.HP} | Comp Energy: {self.comp.energy} | Comp Position: {self.comp.pos}")
+        print("\n\n\n\n########PLAYERROUND########\n1. Move\n2. Evade\n3. Attack\n\
+                4. Eat\n5. Sound\n")
+        print(f"Player Health: {self.player.HP} | Player Energy: {self.player.energy} \
+                | Player Position: {self.player.pos}\nComp Health: {self.comp.HP} | \
+                Comp Energy: {self.comp.energy} | Comp Position: {self.comp.pos}")
         try:
             selection = int(input(":: "))
             if selection == 1:
