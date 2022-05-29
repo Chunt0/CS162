@@ -27,7 +27,6 @@ class Animal():
         if self.HP > 0:
             return
         else:
-            print("Your HP hit 0... you die...")
             raise AnimalDies()
 
     def checkEnergy(self):
