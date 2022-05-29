@@ -30,16 +30,40 @@ class Arena():
             self.comp.checkEnergy()
 
     def playerMove(self):
-        pass
+        move = self.player.move(self.comp.pos)
+        if (self.player.pos + move) < self.left:
+            self.player.pos = self.left
+        elif (self.player.pos + move) > self.right:
+            self.player.pos = self.right
+        else:
+            self.player.pos += move
 
     def compMove(self):
-        pass
+        move = self.comp.move(self.player.pos)
+        if (self.comp.pos + move) < self.left:
+            self.comp.pos = self.left
+        elif (self.comp.pos + move) > self.right:
+            self.comp.pos = self.right
+        else:
+            self.comp.pos += move
 
     def playerEvade(self):
-        pass
+        move = self.player.evade(self.comp.pos)
+        if (self.player.pos + move) < self.left:
+            self.player.pos = self.left
+        elif (self.player.pos + move) > self.right:
+            self.player.pos = self.right
+        else:
+            self.player.pos += move
 
     def compEvade(self):
-        pass
+        move = self.comp.evade(self.player.pos)
+        if (self.comp.pos + move) < self.left:
+            self.comp.pos = self.left
+        elif (self.comp.pos + move) > self.right:
+            self.comp.pos = self.right
+        else:
+            self.comp.pos += move
 
     def playerEat(self):
         pass
