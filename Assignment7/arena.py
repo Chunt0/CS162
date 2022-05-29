@@ -111,17 +111,17 @@ class Arena():
 
     def compRound(self):
         """Moves through comps round sequence"""
-        selection = random.randint(1,5)
-        if selection == 1:
+        selection = random.randint(1,4)
+        if selection == 1 and self.comp.energy > 1:
             self.compMove()
-        elif selection == 2:
+        elif selection == 2 and self.comp.energy > 1:
             self.compEvade()
-        elif selection == 3:
+        elif selection == 3 and self.comp.energy > 1:
             self.compAttack()
-        elif selection == 4:
-            self.compEat()
-        elif selection == 5:
+        elif selection == 4 and self.comp.energy > 1:
             self.compSound()
+        else:
+            self.compEat()
 
     def menu(self):
         """Menu function, used in driver to play game."""
