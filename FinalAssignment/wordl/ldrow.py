@@ -87,11 +87,11 @@ class Ldrow(tk.Tk):
                             self.keyboard.key_matrix.get(answer[0]).config(text='')
                     elif answer[1] == 1:
                         self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._GREEN)
-                        self.keyboard.key_matrix.get(answer[0]).config(bg=self._GREEN)
+                        self.keyboard.key_matrix.get(answer[0]).config(text=answer[0], bg=self._GREEN)
                     elif answer[1] == 2:
                         self.guess_matrix[self._GUESS][index].config(text=answer[0], fg="white", bg=self._YELLOW)
                         if self.keyboard.key_matrix.get(answer[0]).cget("bg") != self._GREEN:
-                            self.keyboard.key_matrix.get(answer[0]).config(bg=self._YELLOW)
+                            self.keyboard.key_matrix.get(answer[0]).config(text=answer[0], bg=self._YELLOW)
                 self._GUESS += 1
             except:
                 pass
